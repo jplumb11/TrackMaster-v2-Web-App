@@ -1,0 +1,14 @@
+# Codio
+.codio
+
+# Databases
+databases/
+
+# Python
+__pycache__/
+
+# Flask
+venv/
+
+# Test
+*_test/
