@@ -1,8 +1,5 @@
-# Codio
-.codio
-
 # Databases
-databases/
+*.db
 
 # Python
 __pycache__/
