@@ -1,6 +1,6 @@
 {
   "commands": {
-        "Setup App": "sudo apt-get update; mkdir location_app/app/databases; sudo apt-get install python3-venv; python3 -m venv location_app/venv; cd location_app; . venv/bin/activate; pip install -r requirements.txt",
+        "Setup App": "sudo apt-get update; mkdir location_app/app/databases location_app/app/static location_app/app/static/css location_app/app/static/js location_app/app/static/img location_app/app/templates; sudo apt-get install python3-venv; python3 -m venv location_app/venv; cd location_app; . venv/bin/activate; pip install -r requirements.txt",
         "Run App": "cd /home/codio/workspace/location_app; . venv/bin/activate; flask run"
   },
   "preview": {

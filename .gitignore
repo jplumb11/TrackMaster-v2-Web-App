@@ -8,4 +8,6 @@ __pycache__/
 venv/
 
 # Test
+# Put your test folders here
+# folder_name/
 *_test/
