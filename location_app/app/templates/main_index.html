@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %} Main {% endblock %} 
+
+{% block css %}
+
+<link href="{{ url_for('static', filename='css/main_index.css') }}" rel="stylesheet" />
+
+{% endblock %}
+
+{% block body %}
+<body>
+    <div class="container">
+        <div class="title">
+            <p class="title_text">Trackmaster</p>
+        </div>
+        <div class="button_main button_profile">
+            <button class="main_button">Profile</button>
+        </div>
+        <div class="button_main button_map">
+            <button class="main_button">Map</button>
+        </div>
+        <div class="button_main button_3">
+            <button class="main_button">Test</button>
+        </div>
+        <div class="button_main button_logout">
+            <button class="main_button">Logout</button>
+        </div>
+        <div class="content_main">
+            <table class="table_main">
+                <caption class="table">Locations</caption>
+                <tr>
+                    <th>ID</th>
+                    <th>Battery</th>
+                    <th>Longitude</th>
+                    <th>Latitude</th>
+                    <th>City</th>
+                    <th>Road</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+                {% for item in locations %} {% if item[0] == username %}
+                <tr>
+                    <td>{{ item[0] }}</td>
+                    <td>{{ item[1] }} %</td>
+                    <td>{{ item[2] }}</td>
+                    <td>{{ item[3] }}</td>
+                    <td>{{ item[4] }}</td>
+                    <td>{{ item[5] }}</td>
+                    <td>{{ item[6] }}</td>
+                    <td>{{ item[7] }}</td>
+                </tr>
+                {% endif %}{% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+
+
+{% endblock %}
+
+

@@ -4,6 +4,7 @@
         "Run App": "cd /home/codio/workspace/location_app; . venv/bin/activate; flask run"
   },
   "preview": {
-        "URL": "http://{{domain3000}}/"
+        "Current File": "http://{{domain}}/{{filepath}}",
+        "URL": "https://{{domain3000}}/"
   }
 }

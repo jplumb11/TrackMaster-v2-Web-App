@@ -45,7 +45,6 @@ def get_locations():
         res = cur.execute(f"SELECT DISTINCT * From Location ORDER BY tid, timestamp;")
         for tid, batt, lon, lat, city, road, tst, in res:
             rtst = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(tst))
-            locations.append([tid, batt, lon, lat, city, road, rtst])
-    print(locations)
+            locations.append([tid, batt, lon, lat, city, road, rtst.split(" ")[0], rtst.split(" ")[1]])
     return locations
         
