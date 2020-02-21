@@ -6,4 +6,4 @@ main_bl = Blueprint('main', __name__)
 
 @main_bl.route("/", methods = ["GET", "POST"])
 def index():
-    return render_template("main_index.html", locations = data_getter.get_locations(), username = session['username'])
+    return render_template("main_index.html", locations = data_getter.get_locations(), username ="00" )
