@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+<!-- TITLE -->
+{% block title %} Forgot Password {% endblock %}
+
+<!-- JS -->
+{% block basejs %}
+{% endblock %}
+
+<!-- CSS -->
+{% block basecss %}
+<link href="{{ url_for('static', filename='css/login_forgot.css') }}" rel="stylesheet" />
+{% endblock %}
+
+<!-- BODY -->
+{% block basebody %}
+<div class="container">
+    <div class="container_box">
+        <div class="title">
+            <p class="title_text shadow">Trackmaster</p>
+        </div>
+        <div class="forgot">
+            <p class="forgot_text">Forgot Password</p>
+        </div>
+        <div class="form">
+            <form action="{{url_for('login.forgot_password')}}" method="POST">
+                <div class="form_inside">
+                    <div class="username">
+                        <p class="username_text">ID:</p><br>
+                        <input type="text" name="username">
+                    </div>
+                    <div class="password">
+                        <p class="password_text">New Password:</p><br>
+                        <input type="password" name="password">
+                    </div>
+                    <div class="r_password">
+                        <input type="password" name="r_password">
+                    </div>
+                    <div class="forgot_button_area">
+                        <button class="forgot_button" type="submit">Reset Password</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

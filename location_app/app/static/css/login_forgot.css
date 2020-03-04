@@ -1,0 +1,103 @@
+.container {
+    grid-area: container;
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 10vh auto 10vh;
+    grid-template-areas:
+        '. . .'
+        '. box .'
+        '. . .';
+}
+
+ .container_box {
+    background-color: white;
+    grid-area: box;
+    display: grid;
+    grid-template-columns: 1fr 2.5fr 2.5fr 1fr;
+    grid-template-rows: 1.5fr 5fr 2fr auto auto 1fr;
+    border-radius : 20px;
+    grid-template-areas:
+        '. . . .'
+        '. title title .'
+        '. . . .'
+        '. forgot forgot .'
+        '. form form .'
+        '. . . .';
+}
+.title {
+    grid-area: title;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+.title_text {
+    font-size: 6vw;
+}
+.forgot {
+    grid-area: forgot;
+    display: grid;
+    justify-content: start;
+    align-content: center;
+}
+.forgot_text {
+    font-size: 3.5vw;
+}
+.form {
+    grid-area: form;
+}
+.form_inside {
+    display: grid;
+    justify-content: start;
+    align-content: center;
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: 0.5fr 1.5fr 0.5fr 1.5fr 1.5fr 1.5fr;
+    grid-template-areas:
+        '. .'
+        'user user'
+        '. .'
+        'pass pass'
+        'r_pass r_pass'
+        '. forgot_button';
+}
+.username {
+    display: grid;
+    justify-content: center stretch;
+    align-content: center;
+    grid-area: user;
+}
+.username_text {
+    margin-bottom: 1px;
+    font-size: 2vw;
+}
+.password {
+    display: grid;
+    justify-content: center stretch;
+    align-content: center;
+    grid-area: pass;
+}
+.password_text {
+    margin-bottom: 1px;
+    font-size: 2vw;
+}
+.r_password {
+    display: grid;
+    justify-content: center stretch;
+    align-content: center;
+    grid-area: r_pass;
+}
+.forgot_button_area {
+    display: grid;
+    justify-content: end;
+    align-content: center;
+    grid-area: forgot_button;
+}
+.forgot_button {
+    font-size: 2vw;
+    border-radius: 10em;
+}
+input {
+    width: 100%;
+    font-size: 2vw;
+}

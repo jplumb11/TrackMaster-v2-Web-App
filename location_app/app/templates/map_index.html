@@ -1,7 +1,8 @@
-{% extends 'base.html' %}
+{% extends 'base_page.html' %}
 
-{% block title %} Main {% endblock %} 
+{% block title %} Map {% endblock %} 
 
+<!-- JS -->
 {% block js %}
 
 <script src="https://openlayers.org/en/v4.6.5/build/ol.js" type="text/javascript"></script>
@@ -9,6 +10,7 @@
 
 {% endblock %}
 
+<!-- CSS -->
 {% block css %}
 
 <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
@@ -16,12 +18,40 @@
 
 {% endblock %}
 
-{% block body %}
-<body  onload="initialize_map(); add_map_point(); ">
-    <div class="map" id="map" style="width: 50vw; height: 50vh;">
-    </div>
-</body>
+<!-- Buttons -->
+{% block b1 %} 
+<form action="{{url_for('main.index')}}" method="GET">
+      <button class="main_button">Home</button>
+</form>
+{% endblock %}
 
+{% block b2 %} 
+<form action="profile" method="GET">
+      <button class="main_button">Profile</button>
+</form>
+{% endblock %}
+
+{% block b3 %}
+<form action="test" method="GET">
+      <button class="main_button">Test</button>
+</form>
+{% endblock %}
+
+
+
+<!-- Body -->
+{% block body %}
+<div class="content_main" id="map">
+    <script>
+        initialize_map({{ locations | tojson }});
+    </script>
+    <div class="dates">
+        <button onclick="get_map_all_locations()">All</button>
+        {% for date in dates %}
+            <button onclick="get_map_for_date('{{date}}')">{{date}}</button>
+        {% endfor%}
+    </div>
+</div>
 {% endblock %}
 
 

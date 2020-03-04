@@ -1,0 +1,187 @@
+.container {
+    grid-area: container;
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-rows: 5vh auto 5vh;
+    grid-template-areas:
+        '. . .'
+        '. box .'
+        '. . .';
+}
+
+ .container_box {
+    background-color: white;
+    grid-area: box;
+    display: grid;
+    grid-template-columns: 1fr 2.5fr 2.5fr 1fr;
+    grid-template-rows: 1fr 5fr 2fr auto auto 1fr;
+    border-radius : 20px;
+    grid-template-areas:
+        '. . . .'
+        '. title title .'
+        '. . . .'
+        '. create create .'
+        '. form form .'
+        '. . . .';
+}
+.title {
+    grid-area: title;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+.title_text {
+    animation: bouncy 2s infinite linear;
+    font-size: 5vw;
+}
+.create {
+    grid-area: create;
+    display: grid;
+    justify-content: start;
+    align-content: center;
+}
+.create_text {
+    font-size: 2vw;
+}
+.form {
+    grid-area: form;
+}
+.form_inside {
+    display: grid;
+    justify-content: start;
+    align-content: center;
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: 0.25fr 1.5fr 0.25fr 1.5fr 0.25fr 1.5fr 0.25fr 1.5fr 1.5fr 0.25fr 1.5fr 1.5fr 1.5fr;
+    grid-template-areas:
+        '. .'
+        'user user'
+        '. .'
+        'name name'
+        '. .'
+        'dob dob'
+        '. .'
+        'gender gender'
+        'height weight'
+        '. .'
+        'pass pass'
+        'r_pass r_pass'
+        '. c_button';
+}
+.username {
+    display: grid;
+    justify-content: center stretch;
+    align-content: center;
+    grid-area: user;
+}
+.username_text {
+    margin-bottom: 1px;
+    font-size: 1.5vw;
+}
+.realname {
+    display: grid;
+    justify-content: center stretch;
+    align-content: center;
+    grid-area: name;
+}
+.realname_text {
+    margin-bottom: 1px;
+    font-size: 1.5vw;
+}
+.dob {
+    display: grid;
+    justify-content: center stretch;
+    align-content: center;
+    grid-area: dob;
+}
+.dob_text {
+    margin-bottom: 1px;
+    font-size: 1.5vw;
+}
+.gender {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-area: gender;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        'gender_text gender_text'
+        'male female';
+}
+.gender_text {
+    margin-bottom: 1px;
+    font-size: 1.5vw;
+    grid-area: gender_text;
+}
+.male {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 1px;
+    grid-area: male;
+}
+.female {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 1px;
+    grid-area: female;
+}
+.height {
+    display: grid;
+    justify-content: center stretch;
+    align-content: center;
+    grid-area: height;
+}
+.height_text {
+    margin-bottom: 1px;
+    font-size: 1.5vw;
+}
+.weight {
+    display: grid;
+    justify-content: center stretch;
+    align-content: center;
+    grid-area: weight;
+}
+.weight_text {
+    margin-bottom: 1px;
+    font-size: 1.5vw;
+}
+.password {
+    display: grid;
+    justify-content: center stretch;
+    align-content: center;
+    grid-area: pass;
+}
+.password_text {
+    margin-bottom: 1px;
+    font-size: 1.5vw;
+}
+.r_password {
+    display: grid;
+    justify-content: center stretch;
+    align-content: center;
+    grid-area: r_pass;
+}
+.create_button_area {
+    display: grid;
+    justify-content: end;
+    align-content: center;
+    grid-area: c_button;
+}
+.create_button {
+    font-size: 1.5vw;
+    border-radius: 10em;
+}
+input {
+    width: 100%;
+    font-size: 2vw;
+}
+input.short {
+    width: 80%;
+    font-size: 2vw;
+}

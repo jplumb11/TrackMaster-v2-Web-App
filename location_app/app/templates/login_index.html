@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+<!-- TITLE -->
+{% block title %} Login {% endblock %}
+
+<!-- JS -->
+{% block basejs %}
+{% endblock %}
+
+<!-- CSS -->
+{% block basecss %}
+<link href="{{ url_for('static', filename='css/login_index.css') }}" rel="stylesheet" />
+{% endblock %}
+
+<!-- BODY -->
+{% block basebody %}
+<div class="container">
+    <div class="container_box">
+        <div class="title">
+            <p class="title_text shadow">Trackmaster</p>
+        </div>
+        <div class="login">
+            <p class="login_text">Login</p>
+        </div>
+        <div class="form">
+            <form action="{{url_for('login.index')}}" method="POST">
+                <div class="form_inside">
+                    <div class="username">
+                        <p class="username_text">ID:</p><br>
+                        <input type="text" name="username">
+                    </div>
+                    <div class="password">
+                        <p class="password_text">Password:</p><br>
+                        <input type="password" name="password">
+                    </div>
+                    <div class="login_button_area">
+                        <button class="login_button" type="submit">Login</button>
+                    </div>
+                    <div class="fpass_area">
+                        <a href="{{url_for('login.forgot_password')}}">Forgot password?</a>
+                    </div>
+                    <div class="cacc_area">
+                        <a href="{{url_for('login.create_account')}}">Create Account</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

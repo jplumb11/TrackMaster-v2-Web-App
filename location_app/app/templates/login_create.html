@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+<!-- TITLE -->
+{% block title %} Create Account {% endblock %}
+
+<!-- JS -->
+{% block basejs %}
+{% endblock %}
+
+<!-- CSS -->
+{% block basecss %}
+<link href="{{ url_for('static', filename='css/login_create.css') }}" rel="stylesheet" />
+{% endblock %}
+
+<!-- BODY -->
+{% block basebody %}
+<div class="container">
+    <div class="container_box">
+        <div class="title">
+            <p class="title_text shadow">Trackmaster</p>
+        </div>
+        <div class="create">
+            <p class="create_text">Create Account</p>
+        </div>
+        <div class="form">
+            <form action="{{url_for('login.create_account')}}" method="POST">
+                <div class="form_inside">
+                    <div class="username">
+                        <p class="username_text">ID:</p><br>
+                        <input type="text" name="username">
+                    </div>
+                    <div class="realname">
+                        <p class="realname_text">Name:</p><br>
+                        <input type="text" name="realname">
+                    </div>
+                    <div class="dob">
+                        <p class="dob_text">DOB (yyyy-mm-dd):</p><br>
+                        <input type="date" name="dob" min="1920-01-01" max="{{today}}">
+                    </div>
+                    <div class="gender">
+                        <p class="gender_text">Gender:</p><br>
+                        <div class="male">
+                            <input type="radio" id="male" name="gender" value="male">
+                            <p>Male</p>
+                        </div>
+                        <div class="female">
+                            <input type="radio" id="female" name="gender" value="female">
+                            <p>Female</p>
+                        </div>
+                    </div>
+                    <div class="height">
+                        <p class="height_text">Height (cm):</p><br>
+                        <input class="short" type="text" name="height">
+                    </div>
+                    <div class="weight">
+                        <p class="weight_text">Weight (kg):</p><br>
+                        <input class="short" type="text" name="weight">
+                    </div>
+                    <div class="password">
+                        <p class="password_text">Password:</p><br>
+                        <input type="password" name="password">
+                    </div>
+                    <div class="r_password">
+                        <input type="password" name="r_password">
+                    </div>
+                    <div class="create_button_area">
+                        <button class="create_button" type="submit">Create Account</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

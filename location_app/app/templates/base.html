@@ -6,12 +6,15 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="author" content="">
-    {% block js %}{% endblock %}
+    {% block basejs %}{% endblock %}
     <title>{% block title %}{% endblock %}</title>
     <link href="{{ url_for('static', filename='css/base.css') }}" rel="stylesheet" />
-    {% block css %}{% endblock %}
+    <link href="{{ url_for('static', filename='css/base.css') }}" rel="stylesheet" />
+    {% block basecss %}{% endblock %}
 </head>
+<body>
+    {% block basebody %}{% endblock %} 
+</body>
 
-{% block body %}{% endblock %}
 
 </html>

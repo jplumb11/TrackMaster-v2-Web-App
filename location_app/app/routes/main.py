@@ -1,9 +1,14 @@
 from flask import Blueprint, render_template, request, url_for, escape, redirect, session
-from app.functions.auth import password_check
 from app.functions.data_tools import data_getter
 
 main_bl = Blueprint('main', __name__)
 
-@main_bl.route("/", methods = ["GET", "POST"])
+@main_bl.route("/")
 def index():
-    return render_template("main_index.html", locations = data_getter.get_locations(), username ="00" )
+    session['username'] = "JC"
+    return render_template("main_index.html", locations = data_getter.get_locations_for(session['username']))
+
+@main_bl.route("/logout")
+def logout():
+    session['username'] = ""
+    return redirect(url_for('index.index'))
