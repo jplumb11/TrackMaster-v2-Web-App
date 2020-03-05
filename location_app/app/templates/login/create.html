@@ -20,7 +20,7 @@
             <p class="title_text shadow">Trackmaster</p>
         </div>
         <div class="create">
-            <p class="create_text">Create Account</p>
+            <p class="create_text">Create Account - {{status}}</p>
         </div>
         <div class="form">
             <form action="{{url_for('login.create_account')}}" method="POST">
@@ -34,8 +34,25 @@
                         <input type="text" name="realname">
                     </div>
                     <div class="dob">
-                        <p class="dob_text">DOB (yyyy-mm-dd):</p><br>
-                        <input type="date" name="dob" min="1920-01-01" max="{{today}}">
+                        <p class="dob_text">Birthday:</p><br>
+                        <select name="day" id="day">
+                            <option value="0" selected>Day</option>
+                            {% for day in days %}
+                            <option value="{{day}}">{{day}}</option>
+                            {% endfor %}
+                        </select>
+                        <select name="month" id="month">
+                            <option value="0" selected>Month</option>
+                            {% for month in months %}
+                            <option value="{{month.1}}">{{month.0}}</option>
+                            {% endfor %}
+                        </select>
+                        <select name="year" id="year">
+                            <option value="0" selected>Year</option>
+                            {% for year in years %}
+                            <option value="{{year}}">{{year}}</option>
+                            {% endfor %}
+                        </select>
                     </div>
                     <div class="gender">
                         <p class="gender_text">Gender:</p><br>

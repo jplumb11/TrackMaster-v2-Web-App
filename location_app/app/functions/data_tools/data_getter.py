@@ -49,11 +49,11 @@ def get_locations_for(username):
     locations = []
     with sql.connect(database_locations) as cur:
         if username == 'admin':
-            res = cur.execute(f"SELECT DISTINCT * From Location ORDER BY tid, date, time;")
+            res = cur.execute(f"SELECT DISTINCT * From Location ORDER BY tid, tst DESC;")
         else:
-            res = cur.execute(f"SELECT DISTINCT * From Location WHERE tid='{username}' ORDER BY date, time;")
-        for tid, batt, lon, lat, city, road, date, time, in res:
-            locations.append([tid, batt, lon, lat, city, road, date, time])
+            res = cur.execute(f"SELECT DISTINCT * From Location WHERE tid='{username}' ORDER BY tst DESC;")
+        for tid, batt, lon, lat, city, road, _date, _time, tst, in res:
+            locations.append([tid, batt, lon, lat, city, road, _date, _time])
     return locations
         
     
@@ -61,14 +61,16 @@ def get_locations_for(username):
 def get_map_locations_for(username):
     locations = []
     with sql.connect(database_locations) as cur:
-        res = cur.execute(f"SELECT DISTINCT tid, longitude, latitude, date, time From Location WHERE tid='{username}' ORDER BY tid, date, time;")
-        for tid, lon, lat, date, time, in res:
-            locations.append([tid, lon, lat, date, time])
+        res = cur.execute(f"SELECT DISTINCT longitude, latitude, date, time From Location WHERE tid='{username}' ORDER BY tst DESC;")
+        for lon, lat, _date, _time, in res:
+            locations.append([lon, lat, _date, _time])
     return locations
 
 def get_map_location_dates(username):
+    date_list = []
     with sql.connect(database_locations) as cur:
-        res = cur.execute(f"SELECT DISTINCT date From Location WHERE tid='{username}' ORDER BY date;")
-        date_list = list(map(lambda x: x[0], res))
+        res = cur.execute(f"SELECT DISTINCT date From Location WHERE tid='{username}' ORDER BY tst DESC;")
+        for _date, in res:
+            date_list.append(_date)
     return date_list
 

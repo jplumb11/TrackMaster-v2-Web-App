@@ -43,7 +43,7 @@ function get_map_for_date(date) {
     reset_map_layers();
     var this_date_loc = [];
     for(i = 0; i < locations.length; i++) {
-        if(locations[i][3] == date) {
+        if(locations[i][2] == date) {
             this_date_loc.push(locations[i]);
         }
     }
@@ -67,8 +67,8 @@ function get_map_for_date(date) {
 function get_average(array_in) {
     var center = [0, 0];
     for(i = 0; i < array_in.length; i++) {
-        center[0] += array_in[i][1];
-        center[1] += array_in[i][2];
+        center[0] += array_in[i][0];
+        center[1] += array_in[i][1];
     }
     return [center[0] / array_in.length, center[1] / array_in.length]
 }
@@ -77,7 +77,7 @@ function add_map_point(location, color = '#ff0000') {
     var vectorLayer = new ol.layer.Vector({
         source: new ol.source.Vector({
             features: [new ol.Feature({
-                geometry: new ol.geom.Point(ol.proj.fromLonLat([location[1], location[2]])),
+                geometry: new ol.geom.Point(ol.proj.fromLonLat([location[0], location[1]])),
             })]
         }),
         style: new ol.style.Style({
@@ -95,8 +95,8 @@ function add_map_point(location, color = '#ff0000') {
 }
 
 function add_map_lines(loc1, loc2) {
-    var pos1 = ol.proj.fromLonLat([loc1[1], loc1[2]]);
-    var pos2 = ol.proj.fromLonLat([loc2[1], loc2[2]]);
+    var pos1 = ol.proj.fromLonLat([loc1[0], loc1[1]]);
+    var pos2 = ol.proj.fromLonLat([loc2[0], loc2[1]]);
     var lineStyle = [
         new ol.style.Style({
             stroke: new ol.style.Stroke({

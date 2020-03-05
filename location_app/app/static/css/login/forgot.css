@@ -52,10 +52,12 @@
     justify-content: start;
     align-content: center;
     grid-template-columns: 2fr 2fr;
-    grid-template-rows: 0.5fr 1.5fr 0.5fr 1.5fr 1.5fr 1.5fr;
+    grid-template-rows: 0.5fr 1.5fr 0.5fr 1.5fr 0.5fr 1.5fr 1.5fr 1fr;
     grid-template-areas:
         '. .'
         'user user'
+        '. .'
+        'dob dob'
         '. .'
         'pass pass'
         'r_pass r_pass'
@@ -68,6 +70,16 @@
     grid-area: user;
 }
 .username_text {
+    margin-bottom: 1px;
+    font-size: 2vw;
+}
+.dob {
+    display: grid;
+    justify-content: center stretch;
+    align-content: center;
+    grid-area: dob;
+}
+.dob_text {
     margin-bottom: 1px;
     font-size: 2vw;
 }
