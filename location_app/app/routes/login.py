@@ -8,17 +8,17 @@ login_bl = Blueprint('login', __name__)
 def index():
     if request.method == "POST":
         print(request.form)
-    return render_template("login_index.html")
+    return render_template("login/index.html")
 
 @login_bl.route("/create_account", methods = ["GET", "POST"])
 def create_account():
     if request.method == "POST":
         print(request.form)
-    return render_template("login_create.html", today = datetime.today().strftime('%Y-%m-%d'))
+    return render_template("login/create.html", today = datetime.today().strftime('%Y-%m-%d'))
 
 
 @login_bl.route("/forgot_password", methods = ["GET", "POST"])
 def forgot_password():
     if request.method == "POST":
         print(request.form)
-    return render_template("login_forgot.html")
+    return render_template("login/forgot.html")

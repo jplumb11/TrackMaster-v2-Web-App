@@ -5,6 +5,6 @@ map_bl = Blueprint('map', __name__)
 
 @map_bl.route("/", methods = ["GET", "POST"])
 def index():
-    return render_template("map_index.html", 
+    return render_template("map/index.html", 
                            locations = data_getter.get_map_locations_for(session['username']),
                            dates = data_getter.get_map_location_dates(session['username']))

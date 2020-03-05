@@ -6,7 +6,7 @@ main_bl = Blueprint('main', __name__)
 @main_bl.route("/")
 def index():
     session['username'] = "JC"
-    return render_template("main_index.html", locations = data_getter.get_locations_for(session['username']))
+    return render_template("main/index.html", locations = data_getter.get_locations_for(session['username']))
 
 @main_bl.route("/logout")
 def logout():

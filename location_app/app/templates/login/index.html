@@ -9,7 +9,7 @@
 
 <!-- CSS -->
 {% block basecss %}
-<link href="{{ url_for('static', filename='css/login_index.css') }}" rel="stylesheet" />
+<link href="{{ url_for('static', filename='css/login/index.css') }}" rel="stylesheet" />
 {% endblock %}
 
 <!-- BODY -->
@@ -37,10 +37,10 @@
                         <button class="login_button" type="submit">Login</button>
                     </div>
                     <div class="fpass_area">
-                        <a href="{{url_for('login.forgot_password')}}">Forgot password?</a>
+                        <a class="fpass_text" href="{{url_for('login.forgot_password')}}">Forgot password?</a>
                     </div>
                     <div class="cacc_area">
-                        <a href="{{url_for('login.create_account')}}">Create Account</a>
+                        <a class="cacc_text" href="{{url_for('login.create_account')}}">Create Account</a>
                     </div>
                 </div>
             </form>

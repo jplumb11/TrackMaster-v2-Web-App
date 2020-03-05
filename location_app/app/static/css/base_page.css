@@ -53,24 +53,3 @@
 .content_main {
     grid-area: c_main;
 }
-.table_main {
-    width: 100%;
-    border-width: 0;
-}
-.table_title {
-    margin: 1vh;
-    font-size: 4vw;
-}
-.table_main th {
-    margin: 1vh;
-    padding: 1vh;
-    font-size: 2vw;
-}
-.table_main td {
-    text-align: center;
-    font-size: 1.4vw;
-    margin: 0.3vh;
-}
-.table_main tr:nth-child(even) {
-    background-color: #3EA4E8;
-}
