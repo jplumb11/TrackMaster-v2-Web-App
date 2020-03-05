@@ -1,1 +1,46 @@
-{% extends 'base.html' %}
+{% extends 'base_page.html' %}
+
+{% block title %} Profile {% endblock %} 
+
+<!-- JS -->
+{% block js %}
+
+
+{% endblock %}
+
+<!-- CSS -->
+{% block css %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile/index.css') }}"/>
+
+{% endblock %}
+
+<!-- Buttons -->
+{% block b1 %} 
+<form action="{{url_for('main.index')}}" method="GET">
+      <button class="main_button">Home</button>
+</form>
+{% endblock %}
+
+{% block b2 %} 
+<form action="{{url_for('map.index')}}" method="GET">
+      <button class="main_button">Map</button>
+</form>
+{% endblock %}
+
+{% block b3 %}
+<form action="test" method="GET">
+      <button class="main_button">Test</button>
+</form>
+{% endblock %}
+
+
+<!-- Body -->
+{% block body %}
+<div class="content_main">
+    
+</div>
+{% endblock %}
+
+
+

@@ -14,7 +14,7 @@
 
 <!-- BUTTON -->
 {% block b1 %} 
-<form action="profile" method="GET">
+<form action="{{url_for('prof.index')}}" method="GET">
       <button class="main_button">Profile</button>
 </form>
 {% endblock %}
