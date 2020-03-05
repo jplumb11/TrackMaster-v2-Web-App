@@ -16,9 +16,9 @@ def check_login_data(data):
         if data['username'] == "admin":
             return "success"
         if not base.user_exists(data['username']):
-            return "no_user"
+            return "no_id"
         if not base.compare(data['username'], data['password'], "password"):
-            return "wrong_password"
+            return "wrong_pass"
         return "success" 
     else:
         return _status

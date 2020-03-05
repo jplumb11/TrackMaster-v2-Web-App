@@ -20,7 +20,7 @@
             <p class="title_text shadow">Trackmaster</p>
         </div>
         <div class="forgot">
-            <p class="forgot_text">Forgot Password - {{status}}</p>
+            <p class="forgot_text">Forgot Password</p>
         </div>
         <div class="form">
             <form action="{{url_for('login.forgot_password')}}" method="POST">
@@ -28,34 +28,54 @@
                     <div class="username">
                         <p class="username_text">ID:</p><br>
                         <input type="text" name="username">
+                        {% if status == 'no_id' %}
+                        <p class="error_text">Wrong ID</p>
+                        {% elif status == 'empty_id' %}
+                        <p class="error_text">Empty ID</p>
+                        {% endif %}
                     </div>
                     <div class="dob">
                         <p class="dob_text">Birthday:</p><br>
-                        <select name="day" id="day">
-                            <option value="0" selected>Day</option>
-                            {% for day in days %}
-                            <option value="{{day}}">{{day}}</option>
-                            {% endfor %}
-                        </select>
-                        <select name="month" id="month">
-                            <option value="0" selected>Month</option>
-                            {% for month in months %}
-                            <option value="{{month.1}}">{{month.0}}</option>
-                            {% endfor %}
-                        </select>
-                        <select name="year" id="year">
-                            <option value="0" selected>Year</option>
-                            {% for year in years %}
-                            <option value="{{year}}">{{year}}</option>
-                            {% endfor %}
-                        </select>
+                        <div>
+                            <select name="day" id="day">
+                                <option value="0" selected>Day</option>
+                                {% for day in days %}
+                                <option value="{{day}}">{{day}}</option>
+                                {% endfor %}
+                            </select>
+                            <select name="month" id="month">
+                                <option value="0" selected>Month</option>
+                                {% for month in months %}
+                                <option value="{{month.1}}">{{month.0}}</option>
+                                {% endfor %}
+                            </select>
+                            <select name="year" id="year">
+                                <option value="0" selected>Year</option>
+                                {% for year in years %}
+                                <option value="{{year}}">{{year}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        {% if status == 'wrong_date' %}
+                        <p class="error_text">Wrong Date</p>
+                        {% elif status == 'empty_bday' %}
+                        <p class="error_text">Empty Date</p>
+                        {% endif %}
                     </div>
                     <div class="password">
                         <p class="password_text">New Password:</p><br>
                         <input type="password" name="password">
+                        {% if status == 'empty_pass' %}
+                        <p class="error_text">Empty Password</p>
+                        {% endif %}
                     </div>
                     <div class="r_password">
                         <input type="password" name="r_password">
+                        {% if status == 'empty_rpass' %}
+                        <p class="error_text">Empty Repeat Password</p>
+                        {% if status == 'pass_no_match' %}
+                        <p class="error_text">Passwords don't match</p>
+                        {% endif %}
                     </div>
                     <div class="forgot_button_area">
                         <button class="forgot_button" type="submit">Reset Password</button>

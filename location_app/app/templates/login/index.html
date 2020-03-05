@@ -28,15 +28,19 @@
                     <div class="username">
                         <p class="username_text">ID:</p><br>
                         <input type="text" name="username">
-                        {% if status == 'no_user' %}
+                        {% if status == 'no_id' %}
                         <p class="error_text">Wrong ID</p>
+                        {% elif status == 'empty_id' %}
+                        <p class="error_text">Empty ID</p>
                         {% endif %}
                     </div>
                     <div class="password">
                         <p class="password_text">Password:</p><br>
                         <input type="password" name="password">
-                        {% if status == 'wrong_password' %}
+                        {% if status == 'wrong_pass' %}
                         <p class="error_text">Wrong password</p>
+                        {% elif status == 'empty_pass' %}
+                        <p class="error_text">Empty password</p>
                         {% endif %}
                     </div>
                     <div class="login_button_area">

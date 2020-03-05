@@ -22,7 +22,7 @@ def check_pass_data(data):
             if not (data['password'] == data['r_password']):
                 return "pass_no_match"
             return "success"
-        return "no_user"
+        return "no_id"
     else:
         return _status
         
@@ -31,13 +31,15 @@ def check_empty(data):
     if data['username'] == "":
         return "empty_id"
     elif data['day'] == "0":
-        return "empty_day"
+        return "empty_bday"
     elif data['month'] == "0":
-        return "empty_month"
+        return "empty_bday"
     elif data['year'] == "0":
-        return "empty_year"
+        return "empty_bday"
     elif data['password'] == "":
         return "empty_pass"
+    elif data['password'] == "":
+        return "empty_rpass"
     else:
         return "ok"
 
