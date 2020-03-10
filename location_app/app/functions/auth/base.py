@@ -8,7 +8,7 @@ database_locations = 'app/databases/locations.db'
 def create():
     with sql.connect(database_user) as cur:
         try:
-            cur.execute("CREATE TABLE UserDatabase(username VARCHAR2(20), password VARCHAR2(20), realname VARCHAR2(20), gender VARCHAR2(20), dob VARCHAR2(20), height VARCHAR2(20), weight VARCHAR2(20));") 
+            cur.execute("CREATE TABLE UserDatabase(username VARCHAR2(20), password VARCHAR2(20), realname VARCHAR2(20), dob VARCHAR2(20), weight VARCHAR2(20));") 
         except:
             pass
 
@@ -65,13 +65,13 @@ def check_date(day, month, year):
     if int(year) > int(today[0]):
         return False
     elif int(year) == int(today[0]):
-        if int(month) >= int(today[1]):
+        if int(month) > int(today[1]):
             return False
         else:
-            if int(day) >= int(today[2]):
+            if int(day) > int(today[2]):
                 return False
             else:
-                return check_month(int(today[1]), int(today[2]))
+                return check_month(int(month), int(day))
     else:
         return check_month(int(month), int(day))
     

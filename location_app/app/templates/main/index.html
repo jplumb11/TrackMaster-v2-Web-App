@@ -38,7 +38,6 @@
         <caption class="table_title shadow">Your Locations</caption>
         <tr class="shadow">
             <th>ID</th>
-            <th>Battery</th>
             <th>Longitude</th>
             <th>Latitude</th>
             <th>City</th>
@@ -49,13 +48,12 @@
         {% for item in locations %}
         <tr>
             <td>{{ item[0] }}</td>
-            <td>{{ item[1] }} %</td>
+            <td>{{ item[1] }}</td>
             <td>{{ item[2] }}</td>
             <td>{{ item[3] }}</td>
             <td>{{ item[4] }}</td>
             <td>{{ item[5] }}</td>
             <td>{{ item[6] }}</td>
-            <td>{{ item[7] }}</td>
         </tr>
         {% endfor %}
     </table>

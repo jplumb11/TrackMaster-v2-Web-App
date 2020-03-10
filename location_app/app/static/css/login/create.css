@@ -53,7 +53,7 @@
     justify-content: start;
     align-content: center;
     grid-template-columns: 2fr 2fr;
-    grid-template-rows: 0.25fr 1.5fr 0.15fr 1.5fr 0.15fr 1.5fr 0.15fr 1.5fr 1.5fr 0.15fr 1.5fr 0.15fr 1.5fr 1.5fr 1.5fr;
+    grid-template-rows: 0.25fr 1.5fr 0.15fr 1.5fr 0.15fr 1.5fr 0.15fr 1.5fr 0.15fr 1.5fr 1.5fr 1.5fr;
     grid-template-areas:
         '. .'
         'user user'
@@ -61,9 +61,6 @@
         'name name'
         '. .'
         'dob dob'
-        '. .'
-        'gender gender'
-        'height height'
         '. .'
         'weight weight'
         '. .'
@@ -98,48 +95,6 @@
     grid-area: dob;
 }
 .dob_text {
-    margin-bottom: 1px;
-    font-size: 1.5vw;
-}
-.gender {
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    grid-area: gender;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas:
-        'gender_text gender_text'
-        'male female';
-}
-.gender_text {
-    margin-bottom: 1px;
-    font-size: 1.5vw;
-    grid-area: gender_text;
-}
-.male {
-    display: grid;
-    grid-template-columns: 0.2fr 1fr;
-    justify-content: center;
-    align-content: center;
-    margin-bottom: 1px;
-    grid-area: male;
-}
-.female {
-    display: grid;
-    grid-template-columns: 0.2fr 1fr;
-    justify-content: center;
-    align-content: center;
-    margin-bottom: 1px;
-    grid-area: female;
-}
-.height {
-    display: grid;
-    justify-content: center stretch;
-    align-content: center;
-    grid-area: height;
-}
-.height_text {
     margin-bottom: 1px;
     font-size: 1.5vw;
 }

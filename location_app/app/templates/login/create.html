@@ -71,27 +71,6 @@
                         <p class="error_text">Empty Date</p>
                         {% endif %}
                     </div>
-                    <div class="gender">
-                        <p class="gender_text">Gender:</p><br>
-                        <div class="male">
-                            <input type="radio" id="male" name="gender" value="male" checked="checked">
-                            <p>Male</p>
-                        </div>
-                        <div class="female">
-                            <input type="radio" id="female" name="gender" value="female">
-                            <p>Female</p>
-                        </div>
-                        {% if status == 'empty_gender' %}
-                        <p class="error_text">Empty Height</p>
-                        {% endif %}
-                    </div>
-                    <div class="height">
-                        <p class="height_text">Height (cm):</p><br>
-                        <input type="text" name="height">
-                        {% if status == 'empty_height' %}
-                        <p class="error_text">Empty Height</p>
-                        {% endif %}
-                    </div>
                     <div class="weight">
                         <p class="weight_text">Weight (kg):</p><br>
                         <input type="text" name="weight">

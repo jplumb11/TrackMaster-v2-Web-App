@@ -5,8 +5,10 @@
 <!-- JS -->
 {% block js %}
 
-<script src="https://openlayers.org/en/v4.6.5/build/ol.js" type="text/javascript"></script>
-<script type="text/javascript" src="{{ url_for('static', filename='js/map/test.js') }}"></script> 
+<script type="text/javascript" src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/map/index.js') }}"></script> 
+<script type="text/javascript" src="{{ url_for('static', filename='js/map/math.js') }}"></script> 
 
 {% endblock %}
 
@@ -14,6 +16,7 @@
 {% block css %}
 
 <link rel="stylesheet" type="text/css" href="https://openlayers.org/en/v4.6.5/css/ol.css"/>
+
 <link rel="stylesheet" href="{{ url_for('static', filename='css/map/index.css') }}"/>
 
 {% endblock %}
@@ -43,7 +46,7 @@
 {% block body %}
 <div class="content_main" id="map">
     <script>
-        initialize_map({{ locations | tojson }});
+        initialize_map({{ locations | tojson }}, {{ weight }});
     </script>
     <div class="dates">
         <button onclick="get_map_all_locations()">All</button>

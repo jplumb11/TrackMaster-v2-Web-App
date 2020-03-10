@@ -4,8 +4,7 @@
 {% block title %} Forgot Password {% endblock %}
 
 <!-- JS -->
-{% block basejs %}
-{% endblock %}
+{% block basejs %} {% endblock %}
 
 <!-- CSS -->
 {% block basecss %}
@@ -26,7 +25,8 @@
             <form action="{{url_for('login.forgot_password')}}" method="POST">
                 <div class="form_inside">
                     <div class="username">
-                        <p class="username_text">ID:</p><br>
+                        <p class="username_text">ID:</p>
+                        <br>
                         <input type="text" name="username">
                         {% if status == 'no_id' %}
                         <p class="error_text">Wrong ID</p>
@@ -35,7 +35,8 @@
                         {% endif %}
                     </div>
                     <div class="dob">
-                        <p class="dob_text">Birthday:</p><br>
+                        <p class="dob_text">Birthday:</p>
+                        <br>
                         <div>
                             <select name="day" id="day">
                                 <option value="0" selected>Day</option>
@@ -63,7 +64,8 @@
                         {% endif %}
                     </div>
                     <div class="password">
-                        <p class="password_text">New Password:</p><br>
+                        <p class="password_text">New Password:</p>
+                        <br>
                         <input type="password" name="password">
                         {% if status == 'empty_pass' %}
                         <p class="error_text">Empty Password</p>
@@ -73,7 +75,7 @@
                         <input type="password" name="r_password">
                         {% if status == 'empty_rpass' %}
                         <p class="error_text">Empty Repeat Password</p>
-                        {% if status == 'pass_no_match' %}
+                        {% elif status == 'pass_no_match' %}
                         <p class="error_text">Passwords don't match</p>
                         {% endif %}
                     </div>

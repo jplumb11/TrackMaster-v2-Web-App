@@ -3,7 +3,6 @@ from app.functions.auth import base
 
 
 database_user = "app/databases/users.db" 
-database_locations = 'app/databases/locations.db'
 
 def change_password(data):
     base.create()

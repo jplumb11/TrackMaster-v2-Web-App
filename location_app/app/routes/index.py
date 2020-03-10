@@ -9,5 +9,3 @@ def index():
         return redirect(url_for('main.index'))
     else:
         return redirect(url_for('login.index'))
-    
-

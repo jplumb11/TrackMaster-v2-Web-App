@@ -7,4 +7,6 @@ map_bl = Blueprint('map', __name__)
 def index():
     return render_template("map/index.html", 
                            locations = data_getter.get_map_locations_for(session['username']),
-                           dates = data_getter.get_map_location_dates(session['username']))
+                           dates = data_getter.get_map_location_dates(session['username']),
+                           weight = data_getter.get_weight_for(session['username']))
+

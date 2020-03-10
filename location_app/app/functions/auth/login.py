@@ -2,9 +2,6 @@ import sqlite3 as sql
 from app.functions.auth import base
 
 
-database_user = "app/databases/users.db" 
-database_locations = 'app/databases/locations.db'
-
 def login(data):
     base.create()
     l_status = check_login_data(data)
