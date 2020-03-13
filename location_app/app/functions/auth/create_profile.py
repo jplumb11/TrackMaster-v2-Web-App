@@ -1,17 +1,17 @@
-import sqlite3 as sql
+import sqlite3 as sql                                                       # Imports sql for use within database
 from app.functions.auth import base
 
 
 database_user = "app/databases/users.db" 
  
-def create_profile(data):
+def create_profile(data):                                                   # Creating new data for a new user
     base.create()
     _status = check_prof_data(data)
     if _status == "success":
         make_user(data)
     return _status
         
-def check_prof_data(data):
+def check_prof_data(data):                                                  # Checking new
     print(data)
     _status = check_empty(data)
     if _status == "ok":

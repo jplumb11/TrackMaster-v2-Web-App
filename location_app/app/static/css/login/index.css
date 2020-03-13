@@ -52,15 +52,24 @@
     justify-content: start;
     align-content: center;
     grid-template-columns: 2fr 2fr;
-    grid-template-rows: 0.5fr 1.5fr 0.5fr 1.5fr 0.5fr 1.5fr 1.5fr;
+/*     grid-template-rows: 0.5fr 1.5fr 0.5fr 1.5fr 0.5fr 1.5fr 1.5fr; */
+    grid-template-rows: 20px auto 20px auto 20px auto auto;
     grid-template-areas:
         '. .'
         'user user'
         '. .'
         'pass pass'
         '. .'
-        'f_pass login_button'
+        'btns btns'
         'c_acc c_acc';
+}
+.btns {
+    display: grid;
+    grid-area: btns;
+    grid-template-columns: 1fr 1fr 0.2fr 1fr;
+    
+    grid-template-areas:
+        'f_pass f_pass . login_button';
 }
 .username {
     display: grid;
@@ -83,32 +92,13 @@
     font-size: 2vw;
 }
 .login_button_area {
-    display: grid;
-    justify-content: end;
-    align-content: center;
     grid-area: login_button;
 }
-.login_button {
-    font-size: 2vw;
-    border-radius: 10em;
-}
 .fpass_area {
-    display: grid;
-    justify-content: start;
-    align-content: center;
     grid-area: f_pass;
 }
-.fpass_text {
-    font-size: 2vw;
-}
 .cacc_area {
-    display: grid;
-    justify-content: center;
-    align-content: center;
     grid-area: c_acc;
-}
-.cacc_text {
-    font-size: 2vw;
 }
 .error_text {
     color: red;

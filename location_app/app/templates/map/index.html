@@ -8,7 +8,7 @@
 <script type="text/javascript" src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
 
 <script type="text/javascript" src="{{ url_for('static', filename='js/map/index.js') }}"></script> 
-<script type="text/javascript" src="{{ url_for('static', filename='js/map/math.js') }}"></script> 
+<script type="text/javascript" src="{{ url_for('static', filename='js/math.js') }}"></script> 
 
 {% endblock %}
 
@@ -23,23 +23,16 @@
 
 <!-- Buttons -->
 {% block b1 %} 
-<form action="{{url_for('main.index')}}" method="GET">
-      <button class="main_button">Home</button>
-</form>
+<a class="btn-3d yellow" href="{{url_for('main.index')}}">Home</a>
 {% endblock %}
 
 {% block b2 %} 
-<form action="{{url_for('prof.index')}}" method="GET">
-      <button class="main_button">Profile</button>
-</form>
+<a class="btn-3d green" href="{{url_for('prof.index')}}">Profile</a>
 {% endblock %}
 
 {% block b3 %}
-<form action="test" method="GET">
-      <button class="main_button">Test</button>
-</form>
+<a class="btn-3d purple" href="{{url_for('average.index')}}">Average</a>
 {% endblock %}
-
 
 
 <!-- Body -->

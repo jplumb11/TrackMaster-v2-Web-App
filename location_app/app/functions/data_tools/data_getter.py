@@ -2,15 +2,15 @@ import sqlite3 as sql
 import time
 
 
-database_user = "app/databases/users.db"   
+database_user = "app/databases/users.db"                                    # Grabs the database
 database_locations = "app/databases/locations.db"   
 
 
 # user
-def get_user_for(username):
+def get_user_for(username):                                             
     with sql.connect(database_user) as cur:
-        res = cur.execute(f"SELECT * FROM UserDatabase WHERE username='{username}';").fetchone()[0]
-        return res
+        res = cur.execute(f"SELECT username, realname, dob, weight FROM UserDatabase WHERE username='{username}';").fetchone()
+        return [res, get_filtered_data_for(username)]                       # Returns required data 
         
 
         

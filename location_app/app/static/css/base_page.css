@@ -2,41 +2,34 @@
     background-color: white;
     grid-area: container;
     display: grid;
-    grid-template-columns: 1fr 4fr 4fr 4fr 4fr 1fr;
+    grid-template-columns: 1fr 16fr 1fr;
     grid-template-rows: 1.5fr auto 1.5fr 5fr 1.5fr auto 1.5fr;
     grid-template-areas:
-        '. . . . . .'
-        '. title title title title .'
-        '. . . . . .'
-        '. b_1 b_2 b_3 b_4 .'
-        '. . . . . .'
-        '. c_main c_main c_main c_main .'
-        '. . . . . .';
+        '. . .'
+        '. title .'
+        '. . .'
+        '. btnss .'
+        '. . .'
+        '. c_main .'
+        '. . .';
 }
 .title {
     grid-area: title;
     display: grid;
+}
+.btnss {
+    grid-area: btnss;
+    grid-template-columns: 1fr 0.2fr 1fr 0.2fr 1fr 0.2fr 1fr;
+    grid-template-rows: 1fr; 
+    display: grid;
+    grid-template-areas:
+        'b_1 . b_2 . b_3 . b_4'
 }
 .title_text {
     margin: 20px;
     justify-self: center;
     align-self: center;
     font-size: 7vw;
-}
-.button_main {
-    text-align: center;
-    display: grid;
-}
-.main_button {
-    justify-self: center;
-    align-self: center;
-    width: 80%;
-    font-size: 2vw;
-    border-radius: 10em;
-    padding: 0.5vh;
-}
-.danger {
-    background-color: #ff5252;
 }
 .button_profile {
     grid-area: b_1;

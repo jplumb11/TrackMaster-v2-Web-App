@@ -14,21 +14,15 @@
 
 <!-- BUTTON -->
 {% block b1 %} 
-<form action="{{url_for('prof.index')}}" method="GET">
-      <button class="main_button">Profile</button>
-</form>
+<a class="btn-3d yellow" href="{{url_for('prof.index')}}">Profile</a>
 {% endblock %}
 
 {% block b2 %} 
-<form action="{{url_for('map.index')}}" method="GET">
-      <button class="main_button">Map</button>
-</form>
+<a class="btn-3d green" href="{{url_for('map.index')}}">Map</a>
 {% endblock %}
 
 {% block b3 %}
-<form action="test" method="GET">
-      <button class="main_button">Test</button>
-</form>
+<a class="btn-3d purple" href="{{url_for('average.index')}}">Average</a>
 {% endblock %}
 
 <!-- Body -->

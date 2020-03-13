@@ -50,10 +50,8 @@
 }
 .form_inside {
     display: grid;
-    justify-content: start;
-    align-content: center;
     grid-template-columns: 2fr 2fr;
-    grid-template-rows: 0.25fr 1.5fr 0.15fr 1.5fr 0.15fr 1.5fr 0.15fr 1.5fr 0.15fr 1.5fr 1.5fr 1.5fr;
+    grid-template-rows: 0.25fr 1.5fr 0.15fr 1.5fr 0.15fr 1.5fr 0.15fr 1.5fr 0.15fr 1.5fr 1.5fr auto;
     grid-template-areas:
         '. .'
         'user user'
@@ -66,7 +64,7 @@
         '. .'
         'pass pass'
         'r_pass r_pass'
-        '. c_button';
+        'c_button c_button';
 }
 .username {
     display: grid;
@@ -125,14 +123,8 @@
     grid-area: r_pass;
 }
 .create_button_area {
-    display: grid;
-    justify-content: end;
     align-content: center;
     grid-area: c_button;
-}
-.create_button {
-    font-size: 1.5vw;
-    border-radius: 10em;
 }
 .error_text {
     color: red;

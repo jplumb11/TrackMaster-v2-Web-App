@@ -84,5 +84,9 @@ function get_calories(loc1, loc2) {
 }
 
 function format_calories(calories) {
-    return (Math.round(calories * 100) / 100) + " calories";
+    if (calories > 1000) {
+        return (Math.round(calories / 10) / 100) + " kcal";
+    } else {
+        return (Math.round(calories * 100) / 100) + " cal";
+    }
 }

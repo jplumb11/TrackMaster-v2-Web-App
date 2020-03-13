@@ -1,0 +1,125 @@
+.content_main {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+    grid-template-rows: 1fr 0.5fr 0.5fr 1fr 0.5fr 1fr 0.5fr 1fr 0.5fr 0.5fr 1fr 0.5fr 1fr;
+    grid-template-areas:
+        'p_title p_title p_title p_title'
+        '. . . .'
+        'ID name p_pic p_pic'
+        'ID1 name1 p_pic p_pic'
+        'date type p_pic p_pic'
+        'date1 type1 p_pic p_pic'
+        'colorr weight p_pic p_pic'
+        'colorr1 weight1 p_pic p_pic'
+        '. . . .'
+        'city tcal cal speed'
+        'city1 tcal1 cal1 speed1'
+        'street tdist dist .'
+        'street1 tdist1 dist1 .';
+}
+.p_title {
+    grid-area: p_title;
+    text-align: center;
+    font-size: 5vw;
+}
+.p_pic {
+    grid-area: p_pic;
+    display: grid;
+    justify-items: center;
+}
+.p_pic img {
+    object-fit: cover;
+    width: 70%;
+    max-height: 100%;
+}
+.label {
+    font-size: 2vw;
+}
+.info {
+    font-size: 3vw;
+}
+.ID {
+    grid-area: ID;
+}
+.name {
+    grid-area: name;
+}
+.date {
+    grid-area: date;
+}
+.color {
+    grid-area: colorr;
+}
+.weight {
+    grid-area: weight;
+}
+.city {
+    grid-area: city;
+}
+.street {
+    grid-area: street;
+}
+.cal {
+    grid-area: cal;
+}
+.type {
+    grid-area: type;
+}
+.speed {
+    grid-area: speed;
+}
+.dist {
+    grid-area: dist;
+}
+.tdist {
+    grid-area: tdist;
+}
+.tcal {
+    grid-area: tcal;
+}
+.ID1 {
+    grid-area: ID1;
+}
+.name1 {
+    grid-area: name1;
+}
+.date1 {
+    grid-area: date1;
+}
+.weight1 {
+    grid-area: weight1;
+}
+.color1 {
+    grid-area: colorr1;
+}
+.city1 {
+    grid-area: city1;
+}
+.street1 {
+    grid-area: street1;
+}
+.cal1 {
+    grid-area: cal1;
+}
+.tcal1 {
+    grid-area: tcal1;
+}
+.type1 {
+    grid-area: type1;
+}
+.speed1 {
+    grid-area: speed1;
+}
+.dist1 {
+    grid-area: dist1;
+}
+.tdist1 {
+    grid-area: tdist1;
+}
+.ccolor {
+    margin: 0 15px 0 0;
+    width: 2vw;
+    height: 2vw;
+    display: inline-block;
+    border-radius: 100%;
+}

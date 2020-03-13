@@ -17,19 +17,21 @@
     <div class="title">
         <p class="title_text shadow">Trackmaster</p>
     </div>
-    <div class="button_main button_profile">
-        {% block b1 %}{% endblock %}
-    </div>
-    <div class="button_main button_map">
-        {% block b2 %}{% endblock %}
-    </div>
-    <div class="button_main button_3">
-        {% block b3 %}{% endblock %}
-    </div>
-    <div class="button_main button_logout">
-        <form action="{{url_for('main.logout')}}" method="GET">
-              <button class="main_button danger">Log out</button>
-        </form>
+    <div class="btnss">
+        <div class="button_profile">
+            {% block b1 %}{% endblock %}
+        </div>
+        <div class="button_map">
+            {% block b2 %}{% endblock %}
+        </div>
+        <div class="button_3">
+            {% block b3 %}{% endblock %}
+        </div>
+        <div class="button_logout">
+            <form action="{{url_for('main.logout')}}" method="GET">
+                  <button  class="btn-3d red">Log out</button>
+            </form>
+        </div>
     </div>
     {% block body %}{% endblock %}
 </div>

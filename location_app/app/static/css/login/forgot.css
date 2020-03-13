@@ -49,10 +49,8 @@
 }
 .form_inside {
     display: grid;
-    justify-content: start;
-    align-content: center;
     grid-template-columns: 2fr 2fr;
-    grid-template-rows: 0.5fr 1.5fr 0.5fr 1.5fr 0.5fr 1.5fr 1.5fr 1fr;
+    grid-template-rows: 0.5fr 1.5fr 0.5fr 1.5fr 0.5fr 1.5fr 1.5fr auto;
     grid-template-areas:
         '. .'
         'user user'
@@ -61,7 +59,7 @@
         '. .'
         'pass pass'
         'r_pass r_pass'
-        '. forgot_button';
+        'forgot_button forgot_button';
 }
 .username {
     display: grid;
@@ -100,9 +98,6 @@
     grid-area: r_pass;
 }
 .forgot_button_area {
-    display: grid;
-    justify-content: end;
-    align-content: center;
     grid-area: forgot_button;
 }
 .forgot_button {

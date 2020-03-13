@@ -1,4 +1,4 @@
-from flask_mqtt import Mqtt
+from flask_mqtt import Mqtt                     # MQTT using flask
 from app.mqtt import mqtt_message_handler
 
 def init_app(app):
@@ -6,7 +6,7 @@ def init_app(app):
 
     @mqtt.on_connect()
     def handle_connect(client, userdata, flags, rc):
-        mqtt.subscribe('owntracks/4009user/#')
+        mqtt.subscribe('owntracks/4009user/#')  #owntracks subscribing to mqtt
 
     @mqtt.on_message()
     def handle_mqtt_message(client, userdata, msg):

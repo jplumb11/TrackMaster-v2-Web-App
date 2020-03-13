@@ -3,10 +3,11 @@
     padding: 0;
 }
 body {
-    background-image: url('../img/earth.jpg');
-    background-repeat: no-repeat;
+/*     background-image: url('../img/earth.jpg'); */
+    background-color: #3EA4E8;
+/*     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
+    background-size: cover; */
     font-family: Gill Sans, sans-serif;
     font-variant: small-caps;
     display: grid;

@@ -1,18 +1,19 @@
 import sqlite3 as sql
 from datetime import datetime
 
+"""Validation for fields"""
 
-database_user = "app/databases/users.db" 
+database_user = "app/databases/users.db"                                     # Taking the databases
 database_locations = 'app/databases/locations.db'
 
 def create():
     with sql.connect(database_user) as cur:
-        try:
+        try:                                                                 # Tries the sql table
             cur.execute("CREATE TABLE UserDatabase(username VARCHAR2(20), password VARCHAR2(20), realname VARCHAR2(20), dob VARCHAR2(20), weight VARCHAR2(20));") 
         except:
             pass
 
-def user_exists(username):
+def user_exists(username):                                                   # Checks for username
     with sql.connect(database_user) as cur:
         com = f"SELECT count(*) FROM UserDatabase WHERE username='{username}';"
         print(com)
@@ -22,7 +23,7 @@ def user_exists(username):
         else:
             return True
         
-def tid_exists(username):
+def tid_exists(username):                                                   # Checks for tid
     with sql.connect(database_locations) as cur:
         com = f"SELECT count(*) FROM Location WHERE tid='{username}';"
         print(com)
@@ -32,7 +33,7 @@ def tid_exists(username):
         else:
             return True
         
-def compare(username, value_in, value_type):
+def compare(username, value_in, value_type):                                # Comparing
     with sql.connect(database_user) as cur:
         com = f"SELECT {value_type} FROM UserDatabase WHERE username='{username}';"
         print(com)
@@ -43,14 +44,14 @@ def compare(username, value_in, value_type):
         else:
             return False
         
-def check_month(month, day):
+def check_month(month, day):                                                # Checks the month and day 
     if month in [1, 3, 5, 7, 8, 10, 12]:
         if (day > 0 and day <= 31):
             return True
         else:
             return False
     elif month == 2:
-        if (day > 0 and day <= 28):
+        if (day > 0 and day <= 28):                                         # Checking February
             return True
         else:
             return False
@@ -60,7 +61,7 @@ def check_month(month, day):
         else:
             return False
         
-def check_date(day, month, year):
+def check_date(day, month, year):                                           # Checks  full date        
     today = datetime.today().strftime('%Y-%m-%d').split("-")
     if int(year) > int(today[0]):
         return False

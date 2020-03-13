@@ -1,44 +1,126 @@
-{% extends 'base_page.html' %}
+{% extends 'base_page.html' %} 
 
-{% block title %} Profile {% endblock %} 
+{% block title %} Profile {% endblock %}
 
 <!-- JS -->
-{% block js %}
+{% block js %} 
 
+<script type="text/javascript" src="{{ url_for('static', filename='js/profile/index.js') }}"></script> 
+<script type="text/javascript" src="{{ url_for('static', filename='js/math.js') }}"></script> 
 
 {% endblock %}
 
 <!-- CSS -->
 {% block css %}
 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/profile/index.css') }}"/>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile/index.css') }}" />
 
 {% endblock %}
 
 <!-- Buttons -->
 {% block b1 %} 
-<form action="{{url_for('main.index')}}" method="GET">
-      <button class="main_button">Home</button>
-</form>
+<a class="btn-3d yellow" href="{{url_for('main.index')}}">Home</a>
 {% endblock %}
 
 {% block b2 %} 
-<form action="{{url_for('map.index')}}" method="GET">
-      <button class="main_button">Map</button>
-</form>
+<a class="btn-3d green" href="{{url_for('map.index')}}">Map</a>
 {% endblock %}
 
 {% block b3 %}
-<form action="test" method="GET">
-      <button class="main_button">Test</button>
-</form>
+<a class="btn-3d purple" href="{{url_for('average.index')}}">Average</a>
 {% endblock %}
 
 
 <!-- Body -->
 {% block body %}
 <div class="content_main">
-    
+    <script>
+        setup({{ locations | tojson }}, '{{user[0][3]}}', {{ dates | tojson }}, '#000000');
+    </script>
+    <div class="p_title">
+        <p class="shadow">My profile</p>
+    </div>
+    <div class="p_pic" id="pic">
+        <img src="{{ url_for('static', filename='img/picture/first.png') }}" alt="profile">
+    </div>
+    <div class="ID">
+        <p class="label" id="qw">ID:</p>
+    </div>
+    <div class="name">
+        <p class="label">Name:</p>
+    </div>
+    <div class="date">
+        <p class="label">Birthday:</p>
+    </div>
+    <div class="color">
+        <p class="label">Favourite color:</p>
+    </div>
+    <div class="weight">
+        <p class="label">Weight:</p>
+    </div>
+    <div class="city">
+        <p class="label">Favourite city:</p>
+    </div>
+    <div class="street">
+        <p class="label">Favourite Street:</p>
+    </div>
+    <div class="cal">
+        <p class="label">Total calories burnt:</p>
+    </div>
+    <div class="tcal">
+        <p class="label">Top calories:</p>
+    </div>
+    <div class="speed">
+        <p class="label">Top speed:</p>
+    </div>
+    <div class="type">
+        <p class="label">Your type:</p>
+    </div>
+    <div class="dist">
+        <p class="label">Total distance:</p>
+    </div>
+    <div class="tdist">
+        <p class="label">Top distance:</p>
+    </div>
+    <div class="ID1">
+        <p class="info">{{user[0][0]}}</p>
+    </div>
+    <div class="name1">
+        <p class="info">{{user[0][1]}}</p>
+    </div>
+    <div class="date1">
+        <p class="info">{{user[0][2]}}</p>
+    </div>
+    <div class="weight1">
+        <p class="info">{{user[0][3]}}</p>
+    </div>
+    <div class="color1">
+        <p class="ccolor" id="color"></p>
+    </div>
+    <div class="city1">
+        <p class="info">{{user[1][0][0]}}</p>
+    </div>
+    <div class="street1">
+        <p class="info">{{user[1][1][0]}}</p>
+    </div>
+    <div class="cal1" id="cal">
+        <p class="info">???</p>
+    </div>
+    <div class="tcal1" id="tcal">
+        <p class="info">???</p>
+    </div>
+    <div class="speed1" id="speed">
+        <p class="info">???</p>
+    </div>
+    <div class="type1" id="type">
+        <p class="info">???</p>
+    </div>
+    <div class="dist1" id="dist">
+        <p class="info">???</p>
+    </div>
+    <div class="tdist1" id="tdist">
+        <p class="info">???</p>
+    </div>
 </div>
 {% endblock %}
 

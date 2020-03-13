@@ -70,7 +70,7 @@ function center_map(points = 0) {
         ol.extent.extend(area, points[1].getSource().getExtent());
         map.getView().fit(area, {
             size: map.getSize(),
-            maxZoom: 21.5
+            maxZoom: 20
         });
     }
 }
@@ -251,12 +251,12 @@ function get_dot_data(layer) {
                     "Time: " + layer.get('time')]);
     } else {
         if(layer.get('special') == "start") {
-            show_alert(["This is Start!", 
+            show_alert(["Your journey started here!", 
                         "Time: " + layer.get('time'), 
                         "Your total distance is: " + layer.get('total_distance'), 
                         "Your total calories are: " + layer.get('total_calories')]);
-        } else if(layer.get('special') == "start") {
-            show_alert(["This is End!",
+        } else if(layer.get('special') == "end") {
+            show_alert(["Your journey ended here!",
                         "Time: " + layer.get('time'), 
                         "Your total distance is: " + layer.get('total_distance'), 
                         "Your total calories are: " + layer.get('total_calories')]);

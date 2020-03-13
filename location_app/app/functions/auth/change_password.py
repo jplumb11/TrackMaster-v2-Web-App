@@ -1,17 +1,17 @@
 import sqlite3 as sql
-from app.functions.auth import base
+from app.functions.auth import base                                     # Imports base for later use
 
 
 database_user = "app/databases/users.db" 
 
-def change_password(data):
+def change_password(data):                                              # Changing password 
     base.create()
     _status = check_pass_data(data)
     if _status == "success":
         new_password(data)
     return _status
     
-def check_pass_data(data):
+def check_pass_data(data):                                              # Checking password data
     _status = check_empty(data)
     if _status == "ok":
         if base.tid_exists(data['username']):
@@ -26,7 +26,7 @@ def check_pass_data(data):
         return _status
         
 
-def check_empty(data):
+def check_empty(data):                                                  # Checks the entry to see if empty
     if data['username'] == "":
         return "empty_id"
     elif data['day'] == "0":
@@ -42,7 +42,7 @@ def check_empty(data):
     else:
         return "ok"
 
-def new_password(data):
+def new_password(data):                                                 # Updates database with new password
     con = sql.connect(database_user)                                   
     cur = con.cursor()
     com = f"UPDATE UserDatabase SET password='{data['password']}' WHERE username='{data['username']}';"

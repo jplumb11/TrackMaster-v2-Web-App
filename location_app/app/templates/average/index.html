@@ -1,0 +1,44 @@
+{% extends 'base_page.html' %}
+
+<!-- TITLE -->
+{% block title %} Average {% endblock %} 
+
+<!-- JS -->
+{% block js %}
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/average/index.js') }}"></script> 
+<script type="text/javascript" src="{{ url_for('static', filename='js/math.js') }}"></script> 
+
+{% endblock %}
+
+<!-- CSS -->
+{% block css %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/average/index.css') }}"/>
+
+{% endblock %}
+
+<!-- BUTTON -->
+{% block b1 %} 
+<a class="btn-3d yellow" href="{{url_for('main.index')}}">Home</a>
+{% endblock %}
+
+{% block b2 %} 
+<a class="btn-3d green" href="{{url_for('map.index')}}">Map</a>
+{% endblock %}
+
+{% block b3 %}
+<a class="btn-3d purple" href="{{url_for('prof.index')}}">Profile</a>
+{% endblock %}
+
+
+<!-- Body -->
+{% block body %}
+<div class="content_main">
+    <a href="https://codepen.io/FelipeMarcos/details/tfhEg" class="btn-3d yellow">Buttons</a>
+</div>
+{% endblock %}
+
+
+
+
