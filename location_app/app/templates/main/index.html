@@ -29,7 +29,7 @@
 {% block body %}
 <div class="content_main">
     {% if advanced %}
-    <a class="table_title" href="{{url_for('main.advanced')}}" title="Click for less details">Your Locations</a>
+    <a class="table_title shadow" href="{{url_for('main.advanced')}}" title="Click for less details">Your Locations</a>
     <table class="table_main">
         <tr class="shadow">
             <th>ID</th>
@@ -53,7 +53,7 @@
         {% endfor %}
     </table>
     {% else %}
-    <a class="table_title" href="{{url_for('main.advanced')}}" title="Click for more details">Your Locations</a>
+    <a class="table_title shadow" href="{{url_for('main.advanced')}}" title="Click for more details">Your Locations</a>
     <table class="table_main">
         <tr class="shadow">
             <th>ID</th>
