@@ -7,7 +7,9 @@ database_user = "app/databases/users.db"
 
 def change_password(data):  
     """
-    Function to allow password change
+    Takes in data for password change and checks if
+    data matches the one in the database, then
+    returns 'success' or an error message
     """
     base.create()
     _status = check_pass_data(data)
@@ -18,7 +20,8 @@ def change_password(data):
 
 def check_pass_data(data):   
     """
-    Function to check password data is valid
+    Compares dates of birth and if the new passwords match,
+    then returns 'success' or an error message
     """
     _status = check_empty(data)
     if _status == "ok":
@@ -37,7 +40,8 @@ def check_pass_data(data):
         
 def check_empty(data):  
     """
-    Function to if the fields are empty
+    Checks if all the fields in the dictionary are filled,
+    if not tells which one is missing
     """
     if data['username'] == "":
         return "empty_id"
@@ -58,7 +62,7 @@ def check_empty(data):
     
 def update_password(data):
     """
-    Function to update new password in the database 
+    Updates the password for the user
     """
     con = sql.connect(database_user)                                   
     cur = con.cursor()

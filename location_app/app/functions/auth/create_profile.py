@@ -7,7 +7,10 @@ database_user = "app/databases/users.db"
     
 def create_profile(data):                                                   
     """
-    Function to create new profile 
+    Takes in data for account creation and checks if
+    the account can be made and then calls a function
+    to create the account 
+    Returns 'success' or an error message on failure
     """
     base.create()
     _status = check_prof_data(data)
@@ -18,7 +21,9 @@ def create_profile(data):
     
 def check_prof_data(data):                                                  
     """
-    Function to the validity of profile data 
+    Checks if the id exists if it's in use, if the 
+    passwords match and if the date is valid
+    and returns 'success' or an error message
     """
     _status = check_empty(data)
     if _status == "ok":
@@ -41,7 +46,8 @@ def check_prof_data(data):
 
 def check_empty(data):
     """
-    Function to check if the fields are filled
+    Checks if all the fields in the dictionary are filled,
+    if not tells which one is missing
     """
     if data['username'] == "":
         return "empty_id"
@@ -66,7 +72,7 @@ def check_empty(data):
     
 def make_user(data):
     """
-    Function to add new user to the database
+    Inserts new user data into the database
     """ 
     con = sql.connect(database_user)                                   
     cur = con.cursor()

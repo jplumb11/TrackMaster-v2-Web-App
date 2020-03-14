@@ -4,17 +4,19 @@ from app.functions.auth import base
 
 def login(data):
     """
-    Function to start to start the login
+    Takes in data for login and checks if the data
+    matches with the one in the database and returns
+    'success' or an error message
     """
     base.create()
-    l_status = check_login_data(data)
-    return l_status
+    _status = check_login_data(data)
+    return _status
     
     
     
 def check_login_data(data):
     """
-    Function to check the login data 
+    Checks the validity of inputed data 
     """
     _status = check_empty(data)
     if _status == "ok":
@@ -33,7 +35,8 @@ def check_login_data(data):
     
 def check_empty(data):
     """
-    Function to check whether the fields are filled 
+    Checks if all the fields in the dictionary are filled,
+    if not tells which one is missing
     """ 
     if data['username'] == "":
         return "empty_id"
