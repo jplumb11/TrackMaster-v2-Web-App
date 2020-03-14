@@ -1,10 +1,17 @@
 // TIME
+
+/** 
+ * Returns a difference between 2 dates in seconds
+ */
 function get_time(loc1, loc2) {
     var miliseconds = Math.abs(new Date('1998/01/01 ' + loc1[3]) -
                                new Date('1998/01/01 ' + loc2[3]));
     return (miliseconds / 1000);
 }
 
+/** 
+ * Formats time given in seconds
+ */
 function format_time(seconds) {
     var miliseconds = seconds * 1000;
     if(seconds > 60) {
@@ -16,10 +23,18 @@ function format_time(seconds) {
 }
 
 // DISTANCE
+
+/** 
+ * Transfers an angle from degrees to radians
+ */
 function toRad(x) {
    return x * Math.PI / 180;
 }
 
+/** 
+ * Calculates distance in meters between 2 points
+ * using Haversine formula
+ */
 function get_distance(loc1, loc2) {
     var x1 = loc2[1] - loc1[1];
     var dLat = toRad(x1);
@@ -33,6 +48,9 @@ function get_distance(loc1, loc2) {
     return (distance * 1000);
 }
 
+/** 
+ * Formats distance given in meters
+ */
 function format_distance(distance) {
     if (distance > 1000) {
         return (Math.round((distance / 1000) * 100) / 100) + " kilometers";
@@ -42,6 +60,10 @@ function format_distance(distance) {
 }
 
 // SPEED
+
+/** 
+ * Returns speed in km/h between 2 points
+ */
 function get_speed(loc1, loc2) {
     var distance = get_distance(loc1, loc2);
     var time = get_time(loc1, loc2);
@@ -50,11 +72,18 @@ function get_speed(loc1, loc2) {
     return (speed * 3.6);
 }
 
+/** 
+ * Formats speed given in km/h
+ */
 function format_speed(speed) {
     return (Math.round(speed * 100) / 100) + " km/h";
 }
 
 // CALORIES
+
+/** 
+ * Returns MET based of users speed
+ */
 function get_MET(speed) {
     if ( 1 <= speed && speed < 3) {
         return 2;
@@ -75,6 +104,9 @@ function get_MET(speed) {
     }
 }
 
+/** 
+ * Returns calories burned between 2 points
+ */
 function get_calories(loc1, loc2) {
     var speed = get_speed(loc1, loc2);
     var time = get_time(loc1, loc2);
@@ -83,6 +115,9 @@ function get_calories(loc1, loc2) {
     return (((met * 3.5 * weight) / 200) * (time/60));
 }
 
+/** 
+ * Formats calories given in cal
+ */
 function format_calories(calories) {
     if (calories > 1000) {
         return (Math.round(calories / 10) / 100) + " kcal";

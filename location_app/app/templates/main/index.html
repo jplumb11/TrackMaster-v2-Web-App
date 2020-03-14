@@ -28,8 +28,9 @@
 <!-- Body -->
 {% block body %}
 <div class="content_main">
+    {% if advanced %}
+    <a class="table_title" href="{{url_for('main.advanced')}}" title="Click for less details">Your Locations</a>
     <table class="table_main">
-        <caption class="table_title shadow">Your Locations</caption>
         <tr class="shadow">
             <th>ID</th>
             <th>Longitude</th>
@@ -40,7 +41,7 @@
             <th>Time</th>
         </tr>
         {% for item in locations %}
-        <tr>
+        <tr class="advanced">
             <td>{{ item[0] }}</td>
             <td>{{ item[1] }}</td>
             <td>{{ item[2] }}</td>
@@ -51,6 +52,27 @@
         </tr>
         {% endfor %}
     </table>
+    {% else %}
+    <a class="table_title" href="{{url_for('main.advanced')}}" title="Click for more details">Your Locations</a>
+    <table class="table_main">
+        <tr class="shadow">
+            <th>ID</th>
+            <th>City</th>
+            <th>Road</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+        {% for item in locations %}
+        <tr class="basic">
+            <td>{{ item[0] }}</td>
+            <td>{{ item[3] }}</td>
+            <td>{{ item[4] }}</td>
+            <td>{{ item[5] }}</td>
+            <td>{{ item[6] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
 </div>
 {% endblock %}
 

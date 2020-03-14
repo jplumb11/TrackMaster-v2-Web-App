@@ -40,19 +40,19 @@
                         <div>
                             <select name="day" id="day">
                                 <option value="0" selected>Day</option>
-                                {% for day in days %}
+                                {% for day in time[0] %}
                                 <option value="{{day}}">{{day}}</option>
                                 {% endfor %}
                             </select>
                             <select name="month" id="month">
                                 <option value="0" selected>Month</option>
-                                {% for month in months %}
+                                {% for month in time[1] %}
                                 <option value="{{month.1}}">{{month.0}}</option>
                                 {% endfor %}
                             </select>
                             <select name="year" id="year">
                                 <option value="0" selected>Year</option>
-                                {% for year in years %}
+                                {% for year in time[2] %}
                                 <option value="{{year}}">{{year}}</option>
                                 {% endfor %}
                             </select>

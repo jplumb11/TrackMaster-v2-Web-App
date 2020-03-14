@@ -16,7 +16,7 @@
     grid-area: box;
     display: grid;
     grid-template-columns: 1fr 2.5fr 2.5fr 1fr;
-    grid-template-rows: 1.5fr 5fr 2fr auto auto 1fr;
+    grid-template-rows: 1.5fr 5fr 2fr auto auto 1.5fr;
     border-radius : 20px;
     grid-template-areas:
         '. . . .'
@@ -50,7 +50,7 @@
 .form_inside {
     display: grid;
     grid-template-columns: 2fr 2fr;
-    grid-template-rows: 0.5fr 1.5fr 0.5fr 1.5fr 0.5fr 1.5fr 1.5fr auto;
+    grid-template-rows: 1vw auto 1vw auto 1vw auto auto auto;
     grid-template-areas:
         '. .'
         'user user'
@@ -77,6 +77,9 @@
     align-content: center;
     grid-area: dob;
 }
+.dob select {
+    font-size: 1.5vw;
+}
 .dob_text {
     margin-bottom: 1px;
     font-size: 2vw;
@@ -93,16 +96,17 @@
 }
 .r_password {
     display: grid;
+    padding-top: 1vw;
     justify-content: center stretch;
     align-content: center;
     grid-area: r_pass;
 }
 .forgot_button_area {
+    padding-top: 1vw;
     grid-area: forgot_button;
 }
 .forgot_button {
     font-size: 2vw;
-    border-radius: 10em;
 }
 .error_text {
     color: red;

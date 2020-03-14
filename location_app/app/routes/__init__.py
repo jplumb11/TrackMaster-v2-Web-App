@@ -6,7 +6,12 @@ from .profile import prof_bl
 from .average import average_bl
 from .picture import picture_bl
 
+
 def init_app(app):
+    """
+    Registers all blueprints to the app with
+    the appropriate url prefix
+    """
     app.register_blueprint(index_bl)
     app.register_blueprint(main_bl, url_prefix="/main")
     app.register_blueprint(map_bl, url_prefix="/map")

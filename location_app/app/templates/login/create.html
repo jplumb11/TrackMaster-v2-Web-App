@@ -5,7 +5,6 @@
 
 <!-- JS -->
 {% block basejs %}
-<script type="text/javascript" src="{{ url_for('static', filename='js/test.js') }}"></script> 
 {% endblock %}
 
 <!-- CSS -->
@@ -23,14 +22,11 @@
         <div class="create">
             <p class="create_text">Create Account</p>
         </div>
-        <button onclick="test()">
-            aaaa
-        </button>
         <div class="form">
             <form action="{{url_for('login.create_account')}}" method="POST">
                 <div class="form_inside">
                     <div class="username">
-                        <p class="username_text">ID:</p><br>
+                        <p class="text">ID:</p><br>
                         <input type="text" name="username">
                         {% if status == 'no_id' %}
                         <p class="error_text">Wrong ID</p>
@@ -41,30 +37,30 @@
                         {% endif %}
                     </div>
                     <div class="realname">
-                        <p class="realname_text">Name:</p><br>
+                        <p class="text">Name:</p><br>
                         <input type="text" name="realname">
                         {% if status == 'empty_name' %}
                         <p class="error_text">Empty Name</p>
                         {% endif %}
                     </div>
                     <div class="dob">
-                        <p class="dob_text">Birthday:</p><br>
+                        <p class="text">Birthday:</p><br>
                         <div>
                             <select name="day" id="day">
                                 <option value="0" selected>Day</option>
-                                {% for day in days %}
+                                {% for day in time[0] %}
                                 <option value="{{day}}">{{day}}</option>
                                 {% endfor %}
                             </select>
                             <select name="month" id="month">
                                 <option value="0" selected>Month</option>
-                                {% for month in months %}
+                                {% for month in time[1] %}
                                 <option value="{{month.1}}">{{month.0}}</option>
                                 {% endfor %}
                             </select>
                             <select name="year" id="year">
                                 <option value="0" selected>Year</option>
-                                {% for year in years %}
+                                {% for year in time[2] %}
                                 <option value="{{year}}">{{year}}</option>
                                 {% endfor %}
                             </select>
@@ -75,15 +71,19 @@
                         <p class="error_text">Empty Date</p>
                         {% endif %}
                     </div>
+                    <div class="colorr">
+                        <p class="text">Favourite Color:</p><br>
+                        <input type="color" name="color">
+                    </div>
                     <div class="weight">
-                        <p class="weight_text">Weight (kg):</p><br>
+                        <p class="text">Weight (kg):</p><br>
                         <input type="text" name="weight">
                         {% if status == 'empty_weight' %}
                         <p class="error_text">Empty Weight</p>
                         {% endif %}
                     </div>
                     <div class="password">
-                        <p class="password_text">Password:</p><br>
+                        <p class="text">Password:</p><br>
                         <input type="password" name="password">
                         {% if status == 'empty_pass' %}
                         <p class="error_text">Empty Password</p>

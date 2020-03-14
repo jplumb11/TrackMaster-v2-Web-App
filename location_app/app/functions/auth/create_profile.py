@@ -1,25 +1,34 @@
-import sqlite3 as sql                                                       # Imports sql for use within database
+import sqlite3 as sql                                                       
 from app.functions.auth import base
 
 
 database_user = "app/databases/users.db" 
  
-def create_profile(data):                                                   # Creating new data for a new user
+    
+def create_profile(data):                                                   
+    """
+    Function to create new profile 
+    """
     base.create()
     _status = check_prof_data(data)
     if _status == "success":
         make_user(data)
     return _status
-        
-def check_prof_data(data):                                                  # Checking new
-    print(data)
+  
+    
+def check_prof_data(data):                                                  
+    """
+    Function to the validity of profile data 
+    """
     _status = check_empty(data)
     if _status == "ok":
         if base.tid_exists(data['username']):
             if not base.user_exists(data['username']):
                 if not (data['password'] == data['r_password']):
                     return "pass_no_match"
-                elif not base.check_date(data['day'], data['month'], data['year']):
+                elif not base.check_date(data['day'], 
+                                         data['month'],
+                                         data['year']):
                     return "wrong_date"
                 else:
                     return "success"
@@ -29,7 +38,11 @@ def check_prof_data(data):                                                  # Ch
             return "no_id"
     return _status
 
+
 def check_empty(data):
+    """
+    Function to check if the fields are filled
+    """
     if data['username'] == "":
         return "empty_id"
     elif data['realname'] == "":
@@ -49,13 +62,24 @@ def check_empty(data):
     else:
         return "ok"
     
+    
+    
 def make_user(data):
+    """
+    Function to add new user to the database
+    """ 
     con = sql.connect(database_user)                                   
     cur = con.cursor()
     _date = f"{data['day']}-{data['month']}-{data['year']}"
-    com = f"INSERT INTO UserDatabase values('{data['username']}','{data['password']}','{data['realname']}','{_date}','{data['weight']}');"
-    print(com)
-    cur.execute(com)
+    cur.execute(f"""
+                  INSERT INTO UserDatabase 
+                  values('{data['username']}',
+                         '{data['password']}',
+                         '{data['realname']}',
+                         '{_date}',
+                         '{data['color']}',
+                         '{data['weight']}');
+                 """)
     con.commit()
     cur.close()
     con.close()

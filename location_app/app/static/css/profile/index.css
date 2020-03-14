@@ -1,7 +1,7 @@
 .content_main {
     display: grid;
-    grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
-    grid-template-rows: 1fr 0.5fr 0.5fr 1fr 0.5fr 1fr 0.5fr 1fr 0.5fr 0.5fr 1fr 0.5fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 0.5fr 0.5fr 1fr 0.5fr 1fr 0.5fr auto 0.5fr 0.5fr 1fr 0.5fr 1fr;
     grid-template-areas:
         'p_title p_title p_title p_title'
         '. . . .'
@@ -10,7 +10,7 @@
         'date type p_pic p_pic'
         'date1 type1 p_pic p_pic'
         'colorr weight p_pic p_pic'
-        'colorr1 weight1 p_pic p_pic'
+        'updates updates p_pic p_pic'
         '. . . .'
         'city tcal cal speed'
         'city1 tcal1 cal1 speed1'
@@ -53,6 +53,17 @@
 .weight {
     grid-area: weight;
 }
+.updates {
+    grid-area: updates;
+}
+.updates form {
+    grid-area: updates;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        'colorr1 weight1 submit';
+}
 .city {
     grid-area: city;
 }
@@ -86,11 +97,28 @@
 .date1 {
     grid-area: date1;
 }
+.submit {
+    grid-area: submit;
+}
+.submit button{
+    font-size: 1.5vw;
+}
 .weight1 {
+    display: grid;
+    align-content: center;
     grid-area: weight1;
 }
 .color1 {
+    display: grid;
+    align-content: center;
     grid-area: colorr1;
+}
+.weight1 input{
+    width: 70%;
+}
+.color1 input{
+    height: 3vw;
+    width: 30%;
 }
 .city1 {
     grid-area: city1;

@@ -35,7 +35,7 @@
 {% block body %}
 <div class="content_main">
     <script>
-        setup({{ locations | tojson }}, '{{user[0][3]}}', {{ dates | tojson }}, '#000000');
+        setup({{ locations | tojson }}, {{user[0][4]}}, {{ dates | tojson }});
     </script>
     <div class="p_title">
         <p class="shadow">My profile</p>
@@ -44,7 +44,7 @@
         <img src="{{ url_for('static', filename='img/picture/first.png') }}" alt="profile">
     </div>
     <div class="ID">
-        <p class="label" id="qw">ID:</p>
+        <p class="label">ID:</p>
     </div>
     <div class="name">
         <p class="label">Name:</p>
@@ -91,11 +91,18 @@
     <div class="date1">
         <p class="info">{{user[0][2]}}</p>
     </div>
-    <div class="weight1">
-        <p class="info">{{user[0][3]}}</p>
-    </div>
-    <div class="color1">
-        <p class="ccolor" id="color"></p>
+    <div class="updates">
+        <form action="" method="POST">
+            <div class="weight1">
+                <input class="info" type="text" name="weight" value='{{user[0][4]}}'>
+            </div>
+            <div class="color1">
+                <input type="color" name="color" value='{{user[0][3]}}'>
+            </div>
+            <div class="submit">
+                <button class="btn-3d green">Update</button>
+            </div>
+        </form>
     </div>
     <div class="city1">
         <p class="info">{{user[1][0][0]}}</p>
@@ -112,8 +119,8 @@
     <div class="speed1" id="speed">
         <p class="info">???</p>
     </div>
-    <div class="type1" id="type">
-        <p class="info">???</p>
+    <div class="type1">
+        <p class="info" id="type">???</p>
     </div>
     <div class="dist1" id="dist">
         <p class="info">???</p>

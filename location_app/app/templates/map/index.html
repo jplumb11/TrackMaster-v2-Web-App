@@ -37,16 +37,26 @@
 
 <!-- Body -->
 {% block body %}
-<div class="content_main" id="map">
-    <script>
-        initialize_map({{ locations | tojson }}, {{ weight }});
-    </script>
+<div class="content_main">
     <div class="dates">
-        <button onclick="get_map_all_locations()">All</button>
-        {% for date in dates %}
-            <button onclick="get_map_for_date('{{date}}')">{{date}}</button>
-        {% endfor%}
+        <div class="selection">
+            <select name="date" id="date">
+                <option value="all" selected>All</option>
+                {% for date in dates %}
+                    <option value="{{date}}">{{date}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="bm_1">
+            <button class="btn-3d blue" onclick="get_map_for_selection()">Go</button>
+        </div>
     </div>
+    <div class="map" id="map">
+        <script>
+            initialize_map({{ locations | tojson }}, {{ weight }}, '{{ color }}');
+        </script>
+    </div>
+    
 </div>
 {% endblock %}
 

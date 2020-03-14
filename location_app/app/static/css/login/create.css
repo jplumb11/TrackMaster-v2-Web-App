@@ -3,8 +3,8 @@
     display: grid;
     height: 100%;
     width: 100%;
-    grid-template-columns: 25% 50% 25%;
-    grid-template-rows: 5vh auto 5vh;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 5vw auto auto;
     grid-template-areas:
         '. . .'
         '. box .'
@@ -16,7 +16,7 @@
     grid-area: box;
     display: grid;
     grid-template-columns: 1fr 2.5fr 2.5fr 1fr;
-    grid-template-rows: 1fr 5fr 2fr auto auto 1fr;
+    grid-template-rows: 1fr 5fr 2fr auto auto 1.5fr;
     border-radius : 20px;
     grid-template-areas:
         '. . . .'
@@ -50,21 +50,23 @@
 }
 .form_inside {
     display: grid;
-    grid-template-columns: 2fr 2fr;
-    grid-template-rows: 0.25fr 1.5fr 0.15fr 1.5fr 0.15fr 1.5fr 0.15fr 1.5fr 0.15fr 1.5fr 1.5fr auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1vw auto 1vw auto 1vw auto 1vw auto 1vw auto 1vw auto auto auto;
     grid-template-areas:
-        '. .'
-        'user user'
-        '. .'
-        'name name'
-        '. .'
-        'dob dob'
-        '. .'
-        'weight weight'
-        '. .'
-        'pass pass'
-        'r_pass r_pass'
-        'c_button c_button';
+        '.'
+        'user'
+        '.'
+        'name'
+        '.'
+        'dob'
+        '.'
+        'colorr'
+        '.'
+        'weight'
+        '.'
+        'pass'
+        'r_pass'
+        'c_button';
 }
 .username {
     display: grid;
@@ -72,19 +74,11 @@
     align-content: center;
     grid-area: user;
 }
-.username_text {
-    margin-bottom: 1px;
-    font-size: 1.5vw;
-}
 .realname {
     display: grid;
     justify-content: center stretch;
     align-content: center;
     grid-area: name;
-}
-.realname_text {
-    margin-bottom: 1px;
-    font-size: 1.5vw;
 }
 .dob {
     display: grid;
@@ -92,7 +86,19 @@
     align-content: center;
     grid-area: dob;
 }
-.dob_text {
+.dob select {
+    font-size: 1.5vw;
+}
+.colorr {
+    display: grid;
+    justify-content: center stretch;
+    align-content: center;
+    grid-area: colorr;
+}
+.colorr input {
+    height: 30px;
+}
+.text {
     margin-bottom: 1px;
     font-size: 1.5vw;
 }
@@ -102,27 +108,21 @@
     align-content: center;
     grid-area: weight;
 }
-.weight_text {
-    margin-bottom: 1px;
-    font-size: 1.5vw;
-}
 .password {
     display: grid;
     justify-content: center stretch;
     align-content: center;
     grid-area: pass;
 }
-.password_text {
-    margin-bottom: 1px;
-    font-size: 1.5vw;
-}
 .r_password {
     display: grid;
+    padding-top: 1vw;
     justify-content: center stretch;
     align-content: center;
     grid-area: r_pass;
 }
 .create_button_area {
+    padding-top: 1vw;
     align-content: center;
     grid-area: c_button;
 }

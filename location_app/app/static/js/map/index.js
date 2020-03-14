@@ -1,34 +1,43 @@
+//MAP
 var map;
 var locations;
 var state;
 var weight;
 
-// IMAGES
+// IMAGES FOR MAP OBJECTS
 var normalMarker = "/static/img/map/dot.svg";
 var startMarker = "/static/img/map/start.svg";
 var endMarker = "/static/img/map/end.svg";
 
-// SCALES
+// SCALES FOR MAP OBJECTS
 var startScale = 2;
 var endScale = 0.7;
 var fScale = 0.6;
 var hScale = 1;
 var lineW = 5;
 
-// COLORS
+// COLORS FOR MAP OBJECTS
 var normalColor = "#ff0000";
 var highStartMarker = "#ffffff";
 var highEndMarker = "#000000";
 var highLine = "#000000";
 
-// TIMERS
+// TIMERS FOR MAP OBJECTS
 var timers = {};
 var l_timers = {};
 
 // MAP
-function initialize_map(_locations, _weight) {
+
+/** 
+ * Makes the map from the passed in data, sets click listeners
+ * and calls all map locations
+ */
+function initialize_map(_locations, _weight, _color) {
     locations = _locations;
     weight = _weight;
+    normalColor = _color;
+    set_other_colors();
+    
     map = new ol.Map({
         target: "map",
         layers: [
@@ -42,11 +51,26 @@ function initialize_map(_locations, _weight) {
     get_map_all_locations();
 }
 
+/** 
+ * Sets other colors depending on the favourite color
+ */
+function set_other_colors() {
+    console.log(normalColor);
+}
+
+/** 
+ * Deletes everything on the map
+ */
 function reset_map_layers() {
     layers = map.getLayers();
     layers.a = [layers.a[0]];
 }
 
+/** 
+ * Centers the map so it shows all the dots on the map
+ * or if the argument are two dots then it centers the map
+ * on them 
+ */
 function center_map(points = 0) {
     if(points == 0) {
         var dot_layers = [];
@@ -75,7 +99,28 @@ function center_map(points = 0) {
     }
 }
 
+// SELECTION
+
+/** 
+ * Decides if all locations should be showed or just 
+ * a specific date based on the value in the select form
+ */
+function get_map_for_selection() {
+    var div = document.getElementById("date");
+    var date = div.options[div.selectedIndex].value;
+    if(date == "all") {
+        get_map_all_locations();
+    } else {
+        get_map_for_date(date);
+    }
+}
+
 // ALL LOCATIONS
+
+/** 
+ * Draws a marker for each location entry and stores the
+ * date and time in the marker
+ */
 function get_map_all_locations() {
     state = 1;
     reset_map_layers();
@@ -92,6 +137,12 @@ function get_map_all_locations() {
 }
 
 // FOR DATE
+
+/** 
+ * Draws marker for each location entry on a specified date
+ * and connects them with lines also stores data that can be
+ * later read by clicking on the marker or the line
+ */
 function get_map_for_date(date) {
     state = 2;
     reset_map_layers();
@@ -148,6 +199,11 @@ function get_map_for_date(date) {
 }
 
 // MARKER
+
+/** 
+ * Draws the marker with set properties and 
+ * returns a reference to that marker
+ */
 function draw_marker(pos1, pos2, _properties) {
     var marker = new ol.layer.Vector({
         source: new ol.source.Vector({
@@ -162,6 +218,9 @@ function draw_marker(pos1, pos2, _properties) {
     return marker;
 }
 
+/** 
+ * Returns a marker style with specified values
+ */
 function get_marker_style(color, scale, img, anchor = [0.5, 0.5]) {
     return new ol.style.Style({
         image: new ol.style.Icon({
@@ -177,6 +236,12 @@ function get_marker_style(color, scale, img, anchor = [0.5, 0.5]) {
 }
 
 // LINE
+
+/** 
+ * Connects 2 locations, does the distance, 
+ * calories, speed and time calculations and stores 
+ * them in line properties
+ */
 function connect_two_locations(loc1, loc2, num) {
     var pos1 = ol.proj.fromLonLat([loc1[0], loc1[1]]);
     var pos2 = ol.proj.fromLonLat([loc2[0], loc2[1]]);
@@ -195,6 +260,10 @@ function connect_two_locations(loc1, loc2, num) {
     draw_line(pos1, pos2, line_properties)
 }
 
+/** 
+ * Draws the line in between 2 positions and applies the 
+ * properties to the line
+ */
 function draw_line(pos1, pos2, _properties) {
     var line = new ol.layer.Vector({
         source: new ol.source.Vector({
@@ -208,6 +277,9 @@ function draw_line(pos1, pos2, _properties) {
     map.addLayer(line);
 }
 
+/** 
+ * Returns a line style with specified color
+ */
 function get_line_style(color) {
     return new ol.style.Style({
         stroke: new ol.style.Stroke({
@@ -218,9 +290,17 @@ function get_line_style(color) {
 }
 
 // CLICK LISTENER
+
+/** 
+ * Sets a click listener on the map which will monitor if a line 
+ * or marker are clicked and in which state and based of that 
+ * will show alerts displaying all the data that was stored 
+ * in the properties of the clicked object
+ */
 function set_click_listener() {
     map.getViewport().addEventListener("click", function(event) {
-        var layer = map.forEachFeatureAtPixel(map.getEventPixel(event), function(feature, layer) {
+        var layer = map.forEachFeatureAtPixel(map.getEventPixel(event),
+                                              function(feature, layer) {
             return layer;
         });
         if(layer) {
@@ -236,6 +316,9 @@ function set_click_listener() {
     });
 }
 
+/** 
+ * Takes in an array of strings and makes an alert out of that
+ */
 function show_alert(info) {
     var text = "";
     for(i = 0; i < info.length; i++) {
@@ -244,6 +327,10 @@ function show_alert(info) {
     alert(text);
 }
 
+/** 
+ * Shows marker data depending on which state it is and if
+ * it is a special marker
+ */
 function get_dot_data(layer) {
     if(state == 1) {
         show_alert(["You were here on", 
@@ -270,6 +357,9 @@ function get_dot_data(layer) {
     }
 }
 
+/** 
+ * Shows line data - only accesible in state 2
+ */
 function get_line_data(layer) {
     show_alert(["Distance: " + layer.get('length'),
                 "Time: " + layer.get('time'), 
@@ -277,6 +367,10 @@ function get_line_data(layer) {
                 "Calories: " + layer.get('calories')]);
 }
 
+/** 
+ * Highlights the line for 4 seconds and updates it's timer
+ * in the dictionary based on its number
+ */
 function highlight_line(line) {
     line.setStyle(get_line_style(highLine));
     clearTimeout(l_timers[line.get('number')]);
@@ -285,6 +379,10 @@ function highlight_line(line) {
     }, 4000);
 }
 
+/** 
+ * Highlights the marker for 4 seconds and updates it's timer
+ * in the dictionary based on its number
+ */
 function highlight_marker(marker, color) {
     marker.setStyle(get_marker_style(color, hScale, normalMarker));
     marker.setZIndex(100);
@@ -294,6 +392,10 @@ function highlight_marker(marker, color) {
     }, 4000);
 }
 
+/** 
+ * Finds the start and the end of a line and if they aren't 
+ * special markers it highlights them
+ */
 function get_start_end(layer) {
     var start;
     var end;
