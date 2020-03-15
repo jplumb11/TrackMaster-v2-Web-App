@@ -12,8 +12,6 @@ def login(data):
     _status = check_login_data(data)
     return _status
     
-    
-    
 def check_login_data(data):
     """
     Checks the validity of inputed data, if 
@@ -33,7 +31,6 @@ def check_login_data(data):
         return "success" 
     else:
         return _status
-
     
 def check_empty(data):
     """

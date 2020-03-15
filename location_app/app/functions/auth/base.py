@@ -81,7 +81,8 @@ def check_month(month, day):
             return True
         else:
             return False
-    elif month == 2:                     # February
+    #February
+    elif month == 2:
         if (day > 0 and day <= 28):                 
             return True
         else:

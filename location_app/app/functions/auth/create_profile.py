@@ -1,6 +1,6 @@
 import sqlite3 as sql                                                       
 from app.functions.auth import base
-
+import re
 
 database_user = "app/databases/users.db" 
  
@@ -17,7 +17,6 @@ def create_profile(data):
     if _status == "success":
         make_user(data)
     return _status
-  
     
 def check_prof_data(data):                                                  
     """
@@ -31,6 +30,9 @@ def check_prof_data(data):
             if not base.user_exists(data['username']):
                 if not (data['password'] == data['r_password']):
                     return "pass_no_match"
+                pass_status = is_pass_valid(data['password'])
+                if pass_status != "ok":
+                    return pass_status
                 elif not base.check_date(data['day'], 
                                          data['month'],
                                          data['year']):
@@ -42,7 +44,6 @@ def check_prof_data(data):
         else:
             return "no_id"
     return _status
-
 
 def check_empty(data):
     """
@@ -68,7 +69,25 @@ def check_empty(data):
     else:
         return "ok"
     
-    
+def is_pass_valid(password):
+    """
+    Checks if the user inputted password matches all
+    the criteria
+    """
+    if len(password) < 5: 
+        return "too_short"
+    elif len(password) > 15:
+        return "too_long"
+    elif not re.search("[A-Z]", password):
+        return "no_up"
+    elif not re.search("[a-z]", password):
+        return "no_low"
+    elif not re.search("[0-9]", password):
+        return "no_num"
+    elif not re.search("[^a-zA-Z0-9_]", password):
+        return "no_sym"
+    else:
+        return "ok"
     
 def make_user(data):
     """

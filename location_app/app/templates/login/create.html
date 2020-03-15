@@ -87,6 +87,18 @@
                         <input type="password" name="password">
                         {% if status == 'empty_pass' %}
                         <p class="error_text">Empty Password</p>
+                        {% elif status == 'no_low' %}
+                        <p class="error_text">Password should contain atleast 1 lowercase letter</p>
+                        {% elif status == 'no_up' %}
+                        <p class="error_text">Password should contain atleast 1 uppercase letter</p>
+                        {% elif status == 'no_num' %}
+                        <p class="error_text">Password should contain atleast 1 number</p>
+                        {% elif status == 'no_sym' %}
+                        <p class="error_text">Password should contain atleast 1 symbol</p>
+                        {% elif status == 'too_short' %}
+                        <p class="error_text">Password is too short</p>
+                        {% elif status == 'too_long' %}
+                        <p class="error_text">Password is too long</p>
                         {% endif %}
                     </div>
                     <div class="r_password">
