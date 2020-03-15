@@ -69,30 +69,18 @@
         'c_button';
 }
 .username {
-    display: grid;
-    justify-content: center stretch;
-    align-content: center;
     grid-area: user;
 }
 .realname {
-    display: grid;
-    justify-content: center stretch;
-    align-content: center;
     grid-area: name;
 }
 .dob {
-    display: grid;
-    justify-content: center stretch;
-    align-content: center;
     grid-area: dob;
 }
 .dob select {
     font-size: 1.5vw;
 }
 .colorr {
-    display: grid;
-    justify-content: center stretch;
-    align-content: center;
     grid-area: colorr;
 }
 .colorr input {
@@ -103,22 +91,13 @@
     font-size: 1.5vw;
 }
 .weight {
-    display: grid;
-    justify-content: center stretch;
-    align-content: center;
     grid-area: weight;
 }
 .password {
-    display: grid;
-    justify-content: center stretch;
-    align-content: center;
     grid-area: pass;
 }
 .r_password {
-    display: grid;
     padding-top: 1vw;
-    justify-content: center stretch;
-    align-content: center;
     grid-area: r_pass;
 }
 .create_button_area {

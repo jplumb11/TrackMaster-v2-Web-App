@@ -1,7 +1,3 @@
-* {
-	box-sizing: border-box;
-}
-
 a[class*="btn"] {text-decoration: none;}
 input[class*="btn"], 
 button[class*="btn"] {
@@ -24,11 +20,11 @@ button[class*="btn"] {
 	text-shadow: 0 1px 0 rgba(0,0,0,0.15);
 }
 
-.btn-3d.red:hover    {background-color: #e74c3c;}
+.btn-3d.red:hover    {background-color: #DD4939;}
 .btn-3d.blue:hover   {background-color: #699DD1;}
 .btn-3d.green:hover  {background-color: #80C49D;}
 .btn-3d.purple:hover {background-color: #D19ECB;}
-.btn-3d.yellow:hover {background-color: #F0D264;}
+.btn-3d.yellow:hover {background-color: #E9CB61;}
 .btn-3d.cyan:hover   {background-color: #82D1E3;}
 
 .btn-3d:active {

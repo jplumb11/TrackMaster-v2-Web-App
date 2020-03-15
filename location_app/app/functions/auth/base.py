@@ -74,13 +74,14 @@ def check_month(month, day):
     """
     Takes in month and day and checks if the day
     is valid for that month
+    Doesn't take in account leap years
     """       
     if month in [1, 3, 5, 7, 8, 10, 12]:
         if (day > 0 and day <= 31):
             return True
         else:
             return False
-    elif month == 2:
+    elif month == 2:                     # February
         if (day > 0 and day <= 28):                 
             return True
         else:

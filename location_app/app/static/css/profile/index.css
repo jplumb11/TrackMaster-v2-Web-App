@@ -144,10 +144,3 @@
 .tdist1 {
     grid-area: tdist1;
 }
-.ccolor {
-    margin: 0 15px 0 0;
-    width: 2vw;
-    height: 2vw;
-    display: inline-block;
-    border-radius: 100%;
-}

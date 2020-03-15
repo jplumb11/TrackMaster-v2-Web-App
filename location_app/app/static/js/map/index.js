@@ -16,15 +16,36 @@ var fScale = 0.6;
 var hScale = 1;
 var lineW = 5;
 
-// COLORS FOR MAP OBJECTS
-var normalColor = "#ff0000";
-var highStartMarker = "#ffffff";
-var highEndMarker = "#000000";
-var highLine = "#000000";
-
 // TIMERS FOR MAP OBJECTS
 var timers = {};
 var l_timers = {};
+
+// COLORS FOR MAP OBJECTS
+var normalColor;
+var highLine;
+var highStartMarker = "#ffffff";
+var highEndMarker = "#000000";
+
+/** 
+ * Returns a hex value contrast color
+ */
+function invert_color(clr) {
+    // invert color components
+    console.log(clr)
+    var r = (255 - parseInt(clr.slice(1, 3), 16)).toString(16);
+    var g = (255 - parseInt(clr.slice(3, 5), 16)).toString(16);
+    var b = (255 - parseInt(clr.slice(5, 7), 16)).toString(16);
+    
+    return "#" + add_zero(r) + add_zero(g) + add_zero(b);
+}
+
+/** 
+ * Fills the hex value so that it's 2 digits long
+ */
+function add_zero(hex) {
+    var _hex = "0" + hex;
+    return _hex.slice(-2);
+}
 
 // MAP
 
@@ -36,7 +57,7 @@ function initialize_map(_locations, _weight, _color) {
     locations = _locations;
     weight = _weight;
     normalColor = _color;
-    set_other_colors();
+    highLine = invert_color(_color);
     
     map = new ol.Map({
         target: "map",
@@ -51,12 +72,7 @@ function initialize_map(_locations, _weight, _color) {
     get_map_all_locations();
 }
 
-/** 
- * Sets other colors depending on the favourite color
- */
-function set_other_colors() {
-    console.log(normalColor);
-}
+
 
 /** 
  * Deletes everything on the map
@@ -181,18 +197,17 @@ function get_map_for_date(date) {
             'last_distance': format_distance(last_distance),
             'last_calories': format_calories(last_calories)
         }
+        var marker = draw_marker(location[0], location[1], marker_properties);
         if(i == 0 && this_date_loc.length > 1) {
-            var marker = draw_marker(location[0], location[1], marker_properties);
             marker.set('special', "start");
-            marker.setZIndex(1000);
+            marker.setZIndex(100);
             marker.setStyle(get_marker_style(normalColor, startScale, startMarker));
         } else if(i == this_date_loc.length - 1 && this_date_loc.length > 1) {
-            var marker = draw_marker(location[0], location[1], marker_properties);
             marker.set('special', "end");
-            marker.setZIndex(1000);
+            marker.setZIndex(100);
             marker.setStyle(get_marker_style(normalColor, endScale, endMarker, [0.37, 0.97]));
         } else {
-            draw_marker(location[0], location[1], marker_properties);
+            marker.setZIndex(3);
         }
     }
     center_map();
@@ -274,6 +289,7 @@ function draw_line(pos1, pos2, _properties) {
         style: get_line_style(normalColor)
     });
     line.setProperties(_properties);
+    line.setZIndex(2);
     map.addLayer(line);
 }
 
@@ -373,9 +389,11 @@ function get_line_data(layer) {
  */
 function highlight_line(line) {
     line.setStyle(get_line_style(highLine));
+    line.setZIndex(10);
     clearTimeout(l_timers[line.get('number')]);
     l_timers[line.get('number')] = setTimeout(function() {
         line.setStyle(get_line_style(normalColor));
+        line.setZIndex(2);
     }, 4000);
 }
 
@@ -385,10 +403,11 @@ function highlight_line(line) {
  */
 function highlight_marker(marker, color) {
     marker.setStyle(get_marker_style(color, hScale, normalMarker));
-    marker.setZIndex(100);
+    marker.setZIndex(11);
     clearTimeout(timers[marker.get('number')]);
     timers[marker.get('number')] = setTimeout(function() {
         marker.setStyle(get_marker_style(normalColor, fScale, normalMarker));
+        marker.setZIndex(3);
     }, 4000);
 }
 

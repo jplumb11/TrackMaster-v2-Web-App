@@ -51,16 +51,16 @@
     display: grid;
     justify-content: start;
     align-content: center;
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: 1fr;
     grid-template-rows: 1vw auto 1vw auto 1vw auto auto;
     grid-template-areas:
-        '. .'
-        'user user'
-        '. .'
-        'pass pass'
-        '. .'
-        'btns btns'
-        'c_acc c_acc';
+        '.'
+        'user'
+        '.'
+        'pass'
+        '.'
+        'btns'
+        'c_acc';
 }
 .btns {
     display: grid;
@@ -70,9 +70,6 @@
         'f_pass f_pass . login_button';
 }
 .username {
-    display: grid;
-    justify-content: center stretch;
-    align-content: center;
     grid-area: user;
 }
 .username_text {
@@ -80,9 +77,6 @@
     font-size: 2vw;
 }
 .password {
-    display: grid;
-    justify-content: center stretch;
-    align-content: center;
     grid-area: pass;
 }
 .password_text {

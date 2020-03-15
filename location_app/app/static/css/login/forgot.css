@@ -49,22 +49,19 @@
 }
 .form_inside {
     display: grid;
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: 1fr;
     grid-template-rows: 1vw auto 1vw auto 1vw auto auto auto;
     grid-template-areas:
-        '. .'
-        'user user'
-        '. .'
-        'dob dob'
-        '. .'
-        'pass pass'
-        'r_pass r_pass'
-        'forgot_button forgot_button';
+        '.'
+        'user'
+        '.'
+        'dob'
+        '.'
+        'pass'
+        'r_pass'
+        'forgot_button';
 }
 .username {
-    display: grid;
-    justify-content: center stretch;
-    align-content: center;
     grid-area: user;
 }
 .username_text {
@@ -72,9 +69,6 @@
     font-size: 2vw;
 }
 .dob {
-    display: grid;
-    justify-content: center stretch;
-    align-content: center;
     grid-area: dob;
 }
 .dob select {
@@ -85,9 +79,6 @@
     font-size: 2vw;
 }
 .password {
-    display: grid;
-    justify-content: center stretch;
-    align-content: center;
     grid-area: pass;
 }
 .password_text {
@@ -95,10 +86,7 @@
     font-size: 2vw;
 }
 .r_password {
-    display: grid;
     padding-top: 1vw;
-    justify-content: center stretch;
-    align-content: center;
     grid-area: r_pass;
 }
 .forgot_button_area {

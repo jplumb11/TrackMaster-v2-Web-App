@@ -2,6 +2,7 @@
 var locations;
 var weight;
 var dates;
+
 // DATA
 var distance = 0;
 var calories = 0;
@@ -52,10 +53,17 @@ function cycle_through_dates() {
                                   this_date_loc[j + 1]);
             var time = get_time(this_date_loc[j],
                                 this_date_loc[j + 1]);
-            if(speed > tspeed && dis < 100 && time > 2) {
-                tspeed = speed;
-            } else if(speed > tspeed && time > 10) {
-                tspeed = speed;
+            
+            // So that random pings get ignored
+            // because their speed can be any random number,
+            // if owntracks is running properly then it should 
+            // report atleast every 20 meters and no human can 
+            // run more than 45 km/h or cross the maximum
+            // distance between pings in less than 1 second
+            if (speed > tspeed && speed < 45) {
+                if (dis < 20 && time > 1) {
+                    tspeed = speed;
+                }
             }
         }
         distance += this_date_dist;
@@ -76,7 +84,7 @@ function get_type() {
     if(tdistance < 1000) {
         return "Couch Potato"
     } else if(tdistance < 3000) {
-        return "Couch Potato"
+        return "Snail"
     } else if(tdistance < 5000) {
         return "Minimalist"
     } else if(tdistance < 8000) {

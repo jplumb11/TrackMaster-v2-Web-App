@@ -16,7 +16,9 @@ def login(data):
     
 def check_login_data(data):
     """
-    Checks the validity of inputed data 
+    Checks the validity of inputed data, if 
+    the username is admin then other checks 
+    aren't made
     """
     _status = check_empty(data)
     if _status == "ok":

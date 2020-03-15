@@ -11,7 +11,7 @@ def init_app(app):
 
     @mqtt.on_connect()
     def handle_connect(client, userdata, flags, rc):
-        mqtt.subscribe('owntracks/4009user/#')  #owntracks subscribing to mqtt
+        mqtt.subscribe('owntracks/4009user/#')
 
     @mqtt.on_message()
     def handle_mqtt_message(client, userdata, msg):
