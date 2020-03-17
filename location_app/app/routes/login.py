@@ -3,18 +3,7 @@ from flask import (Blueprint, render_template, request,
 from app.functions.auth.login import login
 from app.functions.auth.create_profile import create_profile
 from app.functions.auth.change_password import change_password
-from datetime import datetime
-
-
-DAYS = [i for i in range(1,32)]
-MONTHS = [("January", 1), ("February", 2), 
-          ("March", 3), ("April", 4), 
-          ("May", 5), ("June", 6), 
-          ("July", 7), ("August", 8),
-          ("September", 9), ("October", 10), 
-          ("November", 11), ("December", 12)]
-this_year = int(datetime.today().strftime('%Y'))
-YEARS = list(reversed([i for i in range(1900, this_year + 1)]))
+from app.functions.data_tools.data_getter import get_dates
 
 login_bl = Blueprint('login', __name__)
 
@@ -51,10 +40,10 @@ def create_account():
         else:
             return render_template("login/create.html",
                                    status = _status,
-                                   time = [DAYS, MONTHS, YEARS])
+                                   time = get_dates())
     return render_template("login/create.html", 
                            status = "0",
-                           time = [DAYS, MONTHS, YEARS])
+                           time = get_dates())
 
 
 @login_bl.route("/forgot_password", methods = ["GET", "POST"])
@@ -71,7 +60,7 @@ def forgot_password():
         else:
             return render_template("login/forgot.html", 
                                    status = _status,
-                                   time = [DAYS, MONTHS, YEARS])
+                                   time = get_dates())
     return render_template("login/forgot.html",
                            status = "0",
-                           time = [DAYS, MONTHS, YEARS])
+                           time = get_dates())

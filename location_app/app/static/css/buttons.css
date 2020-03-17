@@ -1,3 +1,12 @@
+/* 
+ * 
+ * We used this button library and changed a few 
+ * colors to better suit us
+ * 
+ * https://codepen.io/FelipeMarcos/details/tfhEg
+ * 
+ */
+
 a[class*="btn"] {text-decoration: none;}
 input[class*="btn"], 
 button[class*="btn"] {

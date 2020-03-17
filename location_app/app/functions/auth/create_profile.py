@@ -86,8 +86,24 @@ def is_pass_valid(password):
         return "no_num"
     elif not re.search("[^a-zA-Z0-9_]", password):
         return "no_sym"
+    elif is_password_weak(password):
+        return "weak"
     else:
         return "ok"
+
+def is_password_weak(password):
+    """
+    Checks if the password contains any of the 
+    weak passwords and if the letters are 
+    repeated more than 2 times in a row
+    """
+    weak_passwords = ["pass", "123", r".*([A-Z])\1\1",
+                      "password", "corona", "789", "321",
+                      "1234", "12345", "qwe", "qwer"]
+    for weak_pass in weak_passwords:
+        if re.match(weak_pass, password, re.IGNORECASE):
+            return True
+    return False
     
 def make_user(data):
     """

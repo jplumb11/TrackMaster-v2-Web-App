@@ -95,6 +95,8 @@
                         <p class="error_text">Password should contain atleast 1 number</p>
                         {% elif status == 'no_sym' %}
                         <p class="error_text">Password should contain atleast 1 symbol</p>
+                        {% elif status == 'weak' %}
+                        <p class="error_text">Our experts recommend using a stronger password</p>
                         {% elif status == 'too_short' %}
                         <p class="error_text">Password is too short</p>
                         {% elif status == 'too_long' %}

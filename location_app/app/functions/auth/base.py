@@ -33,7 +33,7 @@ def user_exists(username):
                             FROM UserDatabase 
                             WHERE username='{username}';
                            """)
-        if res.fetchone()[0] == 0:
+        if res.fetchone()[0] == 0: 
             return False
         else:
             return True

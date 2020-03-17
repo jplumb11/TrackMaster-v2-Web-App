@@ -10,7 +10,7 @@
         '. box .'
         '. . .';
 }
-
+/* Creates a box with a grid for the create account form */
  .container_box {
     background-color: white;
     grid-area: box;

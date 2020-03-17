@@ -61,8 +61,10 @@ def check_empty(data):
 
 def is_pass_valid(password):
     """
-    Checks if the user inputted password matches all
-    the criteria
+    Checks if the password matches all
+    the criteria if not returns exactly which one 
+    was not met
+    Criteria was set using RegEx
     """
     if len(password) < 5: 
         return "too_short"
@@ -76,8 +78,24 @@ def is_pass_valid(password):
         return "no_num"
     elif not re.search("[^a-zA-Z0-9_]", password):
         return "no_sym"
+    elif is_password_weak(password):
+        return "weak"
     else:
         return "ok"   
+
+def is_password_weak(password):
+    """
+    Checks if the password contains any of the 
+    weak passwords and if the letters are 
+    repeated more than 2 times in a row
+    """
+    weak_passwords = ["pass", "123", r".*([A-Z])\1\1",
+                      "password", "corona", "789", "321",
+                      "1234", "12345", "qwe", "qwer"]
+    for weak_pass in weak_passwords:
+        if re.match(weak_pass, password, re.IGNORECASE):
+            return True
+    return False
     
 def update_password(data):
     """

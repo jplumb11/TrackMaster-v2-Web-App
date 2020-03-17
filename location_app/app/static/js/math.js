@@ -83,23 +83,46 @@ function format_speed(speed) {
 
 /** 
  * Returns MET based of users speed
+ * 
+ * METS were taken from 
+ * https://sites.google.com/site/compendiumofphysicalactivities/home
  */
 function get_MET(speed) {
     if ( 1 <= speed && speed < 3) {
         return 2;
-    } else if ( 3 <= speed && speed < 5) {
+    } else if ( 3 <= speed && speed < 4.1) {
         return 2.5;
-    } else if ( 5 <= speed && speed < 8) {
-        return 5;
-    } else if ( 8 <= speed && speed < 10) {
-        return 8;
-    } else if ( 10 <= speed && speed < 13) {
+    } else if ( 4.1 <= speed && speed < 5.1) {
+        return 3.2;
+    } else if ( 5.2 <= speed && speed < 6.4) {
+        return 4.4;
+    } else if ( 6.5 <= speed && speed < 7.2) {
+        return 5.2;
+    } else if ( 7.3 <= speed && speed < 8) {
+        return 7;
+    } else if ( 8.1 <= speed && speed < 9.6) {
+        return 9;
+    } else if ( 9.7 <= speed && speed < 10.7) {
+        return 10.5;
+    } else if ( 10.8 <= speed && speed < 11.2){
         return 11;
-    } else if ( 13 <= speed && speed < 16) {
-        return 13.5;
-    } else if ( 16 <= speed && speed < 35){
-        return 16;
-    } else {
+    } else if ( 11.3 <= speed && speed < 12.8){
+        return 11.6;
+    } else if ( 12.9 <= speed && speed < 13.8){
+        return 12.3;    
+    } else if ( 13.9 <= speed && speed < 14.4){
+        return 12.8; 
+    } else if ( 14.5 <= speed && speed < 16){
+        return 14.5; 
+    } else if ( 16.1 <= speed && speed < 17.7){
+        return 16; 
+    } else if ( 17.8 <= speed && speed < 19.3){
+        return 19;
+    } else if ( 19.4 <= speed && speed < 20.9){
+        return 19.8; 
+    } else if ( 21 <= speed && speed < 22.5){
+        return 23;  
+     } else {
         return 1;
     }
 }

@@ -1,9 +1,23 @@
 import sqlite3 as sql
 import time
+from datetime import datetime
 
 
 database_user = "app/databases/users.db"                                    
 database_locations = "app/databases/locations.db"   
+
+# time
+def get_dates():
+    DAYS = [i for i in range(1,32)]
+    MONTHS = [("January", 1), ("February", 2), 
+              ("March", 3), ("April", 4), 
+              ("May", 5), ("June", 6), 
+              ("July", 7), ("August", 8),
+              ("September", 9), ("October", 10), 
+              ("November", 11), ("December", 12)]
+    this_year = int(datetime.today().strftime('%Y'))
+    YEARS = list(reversed([i for i in range(1900, this_year + 1)]))
+    return [DAYS, MONTHS, YEARS]
 
 # user
 def get_user_for(username):
